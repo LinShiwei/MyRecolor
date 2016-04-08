@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5608432A1CB68AB100AC94AE /* MyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560843291CB68AB100AC94AE /* MyImageView.swift */; };
+		560A46021CB4D5B80030AA0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A46011CB4D5B80030AA0E /* AppDelegate.swift */; };
+		560A46041CB4D5B80030AA0E /* PaintingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A46031CB4D5B80030AA0E /* PaintingViewController.swift */; };
+		560A46071CB4D5B80030AA0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560A46051CB4D5B80030AA0E /* Main.storyboard */; };
+		560A46091CB4D5B80030AA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560A46081CB4D5B80030AA0E /* Assets.xcassets */; };
+		560A460C1CB4D5B80030AA0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560A460A1CB4D5B80030AA0E /* LaunchScreen.storyboard */; };
+		560A46171CB4D5B80030AA0E /* MyRecolorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */; };
+		564736541CB7DCBD001E291C /* tempCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564736531CB7DCBD001E291C /* tempCode.swift */; };
+		564736581CB7DFBD001E291C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564736571CB7DFBD001E291C /* MainViewController.swift */; };
+		5647365D1CB7E7BA001E291C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */; };
+		56FD09AD1CB7883F0064571E /* PaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD09AC1CB7883F0064571E /* PaletteView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		560A46131CB4D5B80030AA0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 560A45F61CB4D5B80030AA0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 560A45FD1CB4D5B80030AA0E;
+			remoteInfo = MyRecolor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		560843291CB68AB100AC94AE /* MyImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyImageView.swift; sourceTree = "<group>"; };
+		560A45FE1CB4D5B80030AA0E /* MyRecolor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRecolor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		560A46011CB4D5B80030AA0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		560A46031CB4D5B80030AA0E /* PaintingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintingViewController.swift; sourceTree = "<group>"; };
+		560A46061CB4D5B80030AA0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		560A46081CB4D5B80030AA0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		560A460B1CB4D5B80030AA0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		560A460D1CB4D5B80030AA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		560A46121CB4D5B80030AA0E /* MyRecolorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRecolorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecolorTests.swift; sourceTree = "<group>"; };
+		560A46181CB4D5B80030AA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		564736531CB7DCBD001E291C /* tempCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempCode.swift; sourceTree = "<group>"; };
+		564736571CB7DFBD001E291C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		56FD09AC1CB7883F0064571E /* PaletteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		560A45FB1CB4D5B80030AA0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		560A460F1CB4D5B80030AA0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		560A45F51CB4D5B80030AA0E = {
+			isa = PBXGroup;
+			children = (
+				560A46001CB4D5B80030AA0E /* MyRecolor */,
+				560A46151CB4D5B80030AA0E /* MyRecolorTests */,
+				560A45FF1CB4D5B80030AA0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		560A45FF1CB4D5B80030AA0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				560A45FE1CB4D5B80030AA0E /* MyRecolor.app */,
+				560A46121CB4D5B80030AA0E /* MyRecolorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		560A46001CB4D5B80030AA0E /* MyRecolor */ = {
+			isa = PBXGroup;
+			children = (
+				564736591CB7E13E001E291C /* MainView */,
+				5647365A1CB7E156001E291C /* PaintView */,
+				5647365B1CB7E184001E291C /* support */,
+				560843291CB68AB100AC94AE /* MyImageView.swift */,
+				564736531CB7DCBD001E291C /* tempCode.swift */,
+			);
+			path = MyRecolor;
+			sourceTree = "<group>";
+		};
+		560A46151CB4D5B80030AA0E /* MyRecolorTests */ = {
+			isa = PBXGroup;
+			children = (
+				560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */,
+				560A46181CB4D5B80030AA0E /* Info.plist */,
+			);
+			path = MyRecolorTests;
+			sourceTree = "<group>";
+		};
+		564736591CB7E13E001E291C /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				564736571CB7DFBD001E291C /* MainViewController.swift */,
+				5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
+		5647365A1CB7E156001E291C /* PaintView */ = {
+			isa = PBXGroup;
+			children = (
+				560A46031CB4D5B80030AA0E /* PaintingViewController.swift */,
+				56FD09AC1CB7883F0064571E /* PaletteView.swift */,
+			);
+			name = PaintView;
+			sourceTree = "<group>";
+		};
+		5647365B1CB7E184001E291C /* support */ = {
+			isa = PBXGroup;
+			children = (
+				560A46051CB4D5B80030AA0E /* Main.storyboard */,
+				560A46081CB4D5B80030AA0E /* Assets.xcassets */,
+				560A46011CB4D5B80030AA0E /* AppDelegate.swift */,
+				560A460A1CB4D5B80030AA0E /* LaunchScreen.storyboard */,
+				560A460D1CB4D5B80030AA0E /* Info.plist */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		560A45FD1CB4D5B80030AA0E /* MyRecolor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 560A461B1CB4D5B80030AA0E /* Build configuration list for PBXNativeTarget "MyRecolor" */;
+			buildPhases = (
+				560A45FA1CB4D5B80030AA0E /* Sources */,
+				560A45FB1CB4D5B80030AA0E /* Frameworks */,
+				560A45FC1CB4D5B80030AA0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyRecolor;
+			productName = MyRecolor;
+			productReference = 560A45FE1CB4D5B80030AA0E /* MyRecolor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		560A46111CB4D5B80030AA0E /* MyRecolorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 560A461E1CB4D5B80030AA0E /* Build configuration list for PBXNativeTarget "MyRecolorTests" */;
+			buildPhases = (
+				560A460E1CB4D5B80030AA0E /* Sources */,
+				560A460F1CB4D5B80030AA0E /* Frameworks */,
+				560A46101CB4D5B80030AA0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				560A46141CB4D5B80030AA0E /* PBXTargetDependency */,
+			);
+			name = MyRecolorTests;
+			productName = MyRecolorTests;
+			productReference = 560A46121CB4D5B80030AA0E /* MyRecolorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		560A45F61CB4D5B80030AA0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Linsw;
+				TargetAttributes = {
+					560A45FD1CB4D5B80030AA0E = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4F6NMKB449;
+					};
+					560A46111CB4D5B80030AA0E = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4F6NMKB449;
+						TestTargetID = 560A45FD1CB4D5B80030AA0E;
+					};
+				};
+			};
+			buildConfigurationList = 560A45F91CB4D5B80030AA0E /* Build configuration list for PBXProject "MyRecolor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 560A45F51CB4D5B80030AA0E;
+			productRefGroup = 560A45FF1CB4D5B80030AA0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				560A45FD1CB4D5B80030AA0E /* MyRecolor */,
+				560A46111CB4D5B80030AA0E /* MyRecolorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		560A45FC1CB4D5B80030AA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560A460C1CB4D5B80030AA0E /* LaunchScreen.storyboard in Resources */,
+				560A46091CB4D5B80030AA0E /* Assets.xcassets in Resources */,
+				560A46071CB4D5B80030AA0E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		560A46101CB4D5B80030AA0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		560A45FA1CB4D5B80030AA0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560A46041CB4D5B80030AA0E /* PaintingViewController.swift in Sources */,
+				564736541CB7DCBD001E291C /* tempCode.swift in Sources */,
+				560A46021CB4D5B80030AA0E /* AppDelegate.swift in Sources */,
+				5647365D1CB7E7BA001E291C /* ImageCollectionViewCell.swift in Sources */,
+				564736581CB7DFBD001E291C /* MainViewController.swift in Sources */,
+				56FD09AD1CB7883F0064571E /* PaletteView.swift in Sources */,
+				5608432A1CB68AB100AC94AE /* MyImageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		560A460E1CB4D5B80030AA0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560A46171CB4D5B80030AA0E /* MyRecolorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		560A46141CB4D5B80030AA0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 560A45FD1CB4D5B80030AA0E /* MyRecolor */;
+			targetProxy = 560A46131CB4D5B80030AA0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		560A46051CB4D5B80030AA0E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				560A46061CB4D5B80030AA0E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		560A460A1CB4D5B80030AA0E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				560A460B1CB4D5B80030AA0E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		560A46191CB4D5B80030AA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		560A461A1CB4D5B80030AA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		560A461C1CB4D5B80030AA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyRecolor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.MyRecolor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		560A461D1CB4D5B80030AA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyRecolor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.MyRecolor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		560A461F1CB4D5B80030AA0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyRecolorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.MyRecolorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyRecolor.app/MyRecolor";
+			};
+			name = Debug;
+		};
+		560A46201CB4D5B80030AA0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MyRecolorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.MyRecolorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyRecolor.app/MyRecolor";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		560A45F91CB4D5B80030AA0E /* Build configuration list for PBXProject "MyRecolor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560A46191CB4D5B80030AA0E /* Debug */,
+				560A461A1CB4D5B80030AA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		560A461B1CB4D5B80030AA0E /* Build configuration list for PBXNativeTarget "MyRecolor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560A461C1CB4D5B80030AA0E /* Debug */,
+				560A461D1CB4D5B80030AA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		560A461E1CB4D5B80030AA0E /* Build configuration list for PBXNativeTarget "MyRecolorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				560A461F1CB4D5B80030AA0E /* Debug */,
+				560A46201CB4D5B80030AA0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 560A45F61CB4D5B80030AA0E /* Project object */;
+}

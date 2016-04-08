@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nMZ-MZ-ImG">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Painting View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PaintingViewController" customModule="MyRecolor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="d5i-Hs-pnM" appends="YES" id="enW-se-jtg"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="nlT-0t-ZOO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="H55-SF-EAH"/>
+                            <constraint firstItem="nlT-0t-ZOO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VQg-Wv-kQc"/>
+                            <constraint firstAttribute="trailing" secondItem="nlT-0t-ZOO" secondAttribute="trailing" id="WfQ-SB-shb"/>
+                            <constraint firstItem="nlT-0t-ZOO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ogJ-cE-JC6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="nlT-0t-ZOO" id="MxZ-HA-UZZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="d5i-Hs-pnM">
+                    <connections>
+                        <action selector="taptap:" destination="BYZ-38-t0r" id="7R6-wa-d7L"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="325" y="400"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="b74-Ag-ddm">
+            <objects>
+                <viewController id="nMZ-MZ-ImG" customClass="MainViewController" customModule="MyRecolor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Si-vb-Ski"/>
+                        <viewControllerLayoutGuide type="bottom" id="CDs-Fd-dfp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FRk-j1-snx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KW8-z5-PaA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oSb-Tw-Uqd">
+                                    <size key="itemSize" width="178" height="137"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="PFr-w9-6Vx" customClass="ImageCollectionViewCell" customModule="MyRecolor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="178" height="137"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="178" height="137"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="frame" translatesAutoresizingMaskIntoConstraints="NO" id="tde-uU-fYg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="178" height="137"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="tde-uU-fYg" firstAttribute="leading" secondItem="PFr-w9-6Vx" secondAttribute="leading" id="Pc9-a0-a02"/>
+                                            <constraint firstAttribute="trailing" secondItem="tde-uU-fYg" secondAttribute="trailing" id="e4o-k7-8QE"/>
+                                            <constraint firstItem="tde-uU-fYg" firstAttribute="top" secondItem="PFr-w9-6Vx" secondAttribute="top" id="nbJ-VQ-6zT"/>
+                                            <constraint firstAttribute="bottom" secondItem="tde-uU-fYg" secondAttribute="bottom" id="rcG-vL-28n"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="tde-uU-fYg" id="pbj-OA-o8z"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="nMZ-MZ-ImG" id="6HK-WM-ZFf"/>
+                                    <outlet property="delegate" destination="nMZ-MZ-ImG" id="cN7-gs-v3O"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KW8-z5-PaA" firstAttribute="bottom" secondItem="CDs-Fd-dfp" secondAttribute="top" id="DvF-Ug-g6b"/>
+                            <constraint firstItem="KW8-z5-PaA" firstAttribute="leading" secondItem="FRk-j1-snx" secondAttribute="leading" id="NIh-iE-5SB"/>
+                            <constraint firstItem="KW8-z5-PaA" firstAttribute="top" secondItem="FRk-j1-snx" secondAttribute="top" id="UWM-VO-DZM"/>
+                            <constraint firstAttribute="trailing" secondItem="KW8-z5-PaA" secondAttribute="trailing" id="dnw-aV-4AQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="albumCollectionView" destination="KW8-z5-PaA" id="haU-JJ-LCm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbk-ee-ia5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-328" y="354"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="frame" width="220" height="220"/>
+    </resources>
+</document>
