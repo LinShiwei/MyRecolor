@@ -9,7 +9,6 @@
 import UIKit
 
 class PaintingViewController: UIViewController {
-
     var paintingImage:UIImage?
     
     var paletteView: PaletteView!
@@ -18,7 +17,6 @@ class PaintingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = paintingImage
-        imageView.userInteractionEnabled = true
         configurePaletteView()
     }
     private func configurePaletteView(){
@@ -29,17 +27,13 @@ class PaintingViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-  
     @IBAction func taptap(sender: UITapGestureRecognizer) {
-        
         let point = sender.locationInView(imageView)
         imageView.buckerFill(point, replacementColor: paletteView.currentColor)
     }
     @IBAction func swipeToDismiss(sender: UISwipeGestureRecognizer) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }
 

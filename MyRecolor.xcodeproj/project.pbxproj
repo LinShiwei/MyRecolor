@@ -17,12 +17,6 @@
 		560A46091CB4D5B80030AA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560A46081CB4D5B80030AA0E /* Assets.xcassets */; };
 		560A460C1CB4D5B80030AA0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560A460A1CB4D5B80030AA0E /* LaunchScreen.storyboard */; };
 		560A46171CB4D5B80030AA0E /* MyRecolorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */; };
-		5646371C1CB9DB5000E8C182 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564637171CB9DB5000E8C182 /* ColorPicker.swift */; };
-		5646371D1CB9DB5000E8C182 /* ColorPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564637181CB9DB5000E8C182 /* ColorPickerController.swift */; };
-		5646371E1CB9DB5000E8C182 /* ColorWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564637191CB9DB5000E8C182 /* ColorWell.swift */; };
-		5646371F1CB9DB5000E8C182 /* HuePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646371A1CB9DB5000E8C182 /* HuePicker.swift */; };
-		564637201CB9DB5000E8C182 /* PickerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646371B1CB9DB5000E8C182 /* PickerImage.swift */; };
-		564637221CB9DDC000E8C182 /* ColorTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564637211CB9DDC000E8C182 /* ColorTestViewController.swift */; };
 		564736541CB7DCBD001E291C /* tempCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564736531CB7DCBD001E291C /* tempCode.swift */; };
 		564736581CB7DFBD001E291C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564736571CB7DFBD001E291C /* MainViewController.swift */; };
 		5647365D1CB7E7BA001E291C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */; };
@@ -58,12 +52,6 @@
 		560A46121CB4D5B80030AA0E /* MyRecolorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRecolorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecolorTests.swift; sourceTree = "<group>"; };
 		560A46181CB4D5B80030AA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		564637171CB9DB5000E8C182 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
-		564637181CB9DB5000E8C182 /* ColorPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerController.swift; sourceTree = "<group>"; };
-		564637191CB9DB5000E8C182 /* ColorWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWell.swift; sourceTree = "<group>"; };
-		5646371A1CB9DB5000E8C182 /* HuePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuePicker.swift; sourceTree = "<group>"; };
-		5646371B1CB9DB5000E8C182 /* PickerImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerImage.swift; sourceTree = "<group>"; };
-		564637211CB9DDC000E8C182 /* ColorTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorTestViewController.swift; path = MyRecolor/ColorTestViewController.swift; sourceTree = SOURCE_ROOT; };
 		564736531CB7DCBD001E291C /* tempCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempCode.swift; sourceTree = "<group>"; };
 		564736571CB7DFBD001E291C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -113,7 +101,6 @@
 		560A46001CB4D5B80030AA0E /* MyRecolor */ = {
 			isa = PBXGroup;
 			children = (
-				564637161CB9DB5000E8C182 /* Source */,
 				564736591CB7E13E001E291C /* MainView */,
 				5647365A1CB7E156001E291C /* PaintView */,
 				5647365B1CB7E184001E291C /* support */,
@@ -130,19 +117,6 @@
 				560A46181CB4D5B80030AA0E /* Info.plist */,
 			);
 			path = MyRecolorTests;
-			sourceTree = "<group>";
-		};
-		564637161CB9DB5000E8C182 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				564637171CB9DB5000E8C182 /* ColorPicker.swift */,
-				564637181CB9DB5000E8C182 /* ColorPickerController.swift */,
-				564637191CB9DB5000E8C182 /* ColorWell.swift */,
-				5646371A1CB9DB5000E8C182 /* HuePicker.swift */,
-				5646371B1CB9DB5000E8C182 /* PickerImage.swift */,
-				564637211CB9DDC000E8C182 /* ColorTestViewController.swift */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 		564736591CB7E13E001E291C /* MainView */ = {
@@ -299,18 +273,12 @@
 				560A46041CB4D5B80030AA0E /* PaintingViewController.swift in Sources */,
 				56ECC5DE1CBA2EBB00C4A856 /* BrightnessView.swift in Sources */,
 				564736541CB7DCBD001E291C /* tempCode.swift in Sources */,
-				5646371D1CB9DB5000E8C182 /* ColorPickerController.swift in Sources */,
 				56ECC5DA1CB9FBE100C4A856 /* ColorCollectionViewLayout.swift in Sources */,
 				5604DA661CB91F710041045E /* PaletteView.swift in Sources */,
 				560A46021CB4D5B80030AA0E /* AppDelegate.swift in Sources */,
 				5647365D1CB7E7BA001E291C /* ImageCollectionViewCell.swift in Sources */,
-				5646371C1CB9DB5000E8C182 /* ColorPicker.swift in Sources */,
 				56ECC5DC1CBA1AA100C4A856 /* Define.swift in Sources */,
-				564637221CB9DDC000E8C182 /* ColorTestViewController.swift in Sources */,
 				56ECC5D81CB9F75100C4A856 /* ColorCollectionView.swift in Sources */,
-				564637201CB9DB5000E8C182 /* PickerImage.swift in Sources */,
-				5646371F1CB9DB5000E8C182 /* HuePicker.swift in Sources */,
-				5646371E1CB9DB5000E8C182 /* ColorWell.swift in Sources */,
 				564736581CB7DFBD001E291C /* MainViewController.swift in Sources */,
 				5608432A1CB68AB100AC94AE /* MyImageView.swift in Sources */,
 			);

@@ -10,18 +10,14 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var albumCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        albumCollectionView.pagingEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
-    
+   
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showImage", let destinationViewController = segue.destinationViewController as? PaintingViewController,let cell = sender as? ImageCollectionViewCell {

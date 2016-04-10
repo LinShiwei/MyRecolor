@@ -26,7 +26,6 @@ class ColorCollectionViewLayout: UICollectionViewLayout {
     
     override func prepareLayout() {
         if cache.isEmpty {
-            
             let columnWidth = contentWidth / CGFloat(numberOfColumns)
             let rowHeight = contentHeight / CGFloat(numberOfRows)
             
@@ -55,13 +54,10 @@ class ColorCollectionViewLayout: UICollectionViewLayout {
             }
         }
     }
-    
     override func collectionViewContentSize() -> CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
     }
-    
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         
         for attributes  in cache {

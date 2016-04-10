@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -47,7 +47,7 @@
                         <action selector="taptap:" destination="BYZ-38-t0r" id="7R6-wa-d7L"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="up" id="4GP-3X-rl7">
+                <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="4GP-3X-rl7">
                     <connections>
                         <action selector="swipeToDismiss:" destination="BYZ-38-t0r" id="CZq-iT-KrO"/>
                     </connections>
@@ -67,7 +67,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KW8-z5-PaA">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KW8-z5-PaA">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <collectionViewLayout key="collectionViewLayout" id="jcu-4Z-ZkU" customClass="AlbumCollectionViewLayout" customModule="MyRecolor" customModuleProvider="target"/>
                                 <cells>
@@ -111,49 +111,10 @@
                             <constraint firstAttribute="trailing" secondItem="KW8-z5-PaA" secondAttribute="trailing" id="dnw-aV-4AQ"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="albumCollectionView" destination="KW8-z5-PaA" id="haU-JJ-LCm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbk-ee-ia5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-328" y="354"/>
-        </scene>
-        <!--Color Test View Controller-->
-        <scene sceneID="C5f-yi-dMN">
-            <objects>
-                <viewController id="blt-bi-oZ9" customClass="ColorTestViewController" customModule="MyRecolor" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jSB-SC-MqO"/>
-                        <viewControllerLayoutGuide type="bottom" id="I5E-Oa-nJd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dk7-ds-KZR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-NK-nq2" customClass="ColorPicker" customModule="MyRecolor" customModuleProvider="target">
-                                <rect key="frame" x="146" y="0.0" width="325" height="329"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aVG-e8-sQK" customClass="HuePicker" customModule="MyRecolor" customModuleProvider="target">
-                                <rect key="frame" x="146" y="363" width="325" height="36"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enf-Ka-KzN" customClass="ColorWell" customModule="MyRecolor" customModuleProvider="target">
-                                <rect key="frame" x="50" y="20" width="46" height="47"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="colorPicker" destination="rMg-NK-nq2" id="KO8-9o-Se7"/>
-                        <outlet property="colorWell" destination="Enf-Ka-KzN" id="3i9-ck-jNc"/>
-                        <outlet property="huePicker" destination="aVG-e8-sQK" id="yqF-cD-IdJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OvG-9g-dRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-183" y="1068"/>
         </scene>
     </scenes>
     <resources>

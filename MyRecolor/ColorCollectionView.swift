@@ -9,18 +9,9 @@
 import UIKit
 
 class ColorCollectionView: UICollectionView {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
     //MARK: init
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         configureView()
     }
     private func configureView(){
