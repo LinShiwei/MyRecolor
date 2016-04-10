@@ -203,4 +203,27 @@ return node.value
 }
 }
 
+
+
+var currentColor = UIColor.redColor()
+weak var imageView : UIImageView!
+
+private let windowBounds = UIScreen.mainScreen().bounds
+private var originSize : CGSize?
+//MARK: init
+required init?(coder aDecoder: NSCoder) {
+super.init(coder: aDecoder)
+
+configureView()
+}
+private func configureView(){
+originSize = CGSize(width: windowBounds.width*3/5, height: windowBounds.height/5)
+self.bounds = CGRect(origin: CGPoint(x: 0,y: 0), size: originSize!)
+self.backgroundColor = UIColor.greenColor()
+}
+
+private func refreshCurrentColor(){
+
+}
+
 */

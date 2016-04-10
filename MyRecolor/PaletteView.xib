@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PaletteView" customModule="MyRecolor" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="514" height="289"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mq2-AP-T7O">
+                    <rect key="frame" x="0.0" y="0.0" width="514" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="cIn-rw-PgB"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="hideView:" destination="iN0-l3-epB" eventType="touchUpInside" id="Kuy-Ic-RQq"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jTj-VC-Dbe" customClass="ColorCollectionView" customModule="MyRecolor" customModuleProvider="target">
+                    <rect key="frame" x="8" y="38" width="460" height="223"/>
+                    <collectionViewLayout key="collectionViewLayout" id="dT2-6u-pcn" customClass="ColorCollectionViewLayout" customModule="MyRecolor" customModuleProvider="target"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Hde-F8-QnH"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="83k-KU-DnJ"/>
+                    </connections>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ip8-n4-Aij" customClass="BrightnessView" customModule="MyRecolor" customModuleProvider="target">
+                    <rect key="frame" x="476" y="38" width="30" height="223"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="OIh-dw-qqt"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mq2-AP-T7O" secondAttribute="trailing" id="2wQ-BT-86D"/>
+                <constraint firstAttribute="bottom" secondItem="jTj-VC-Dbe" secondAttribute="bottom" constant="28" id="4GD-vE-isq"/>
+                <constraint firstItem="ip8-n4-Aij" firstAttribute="top" secondItem="mq2-AP-T7O" secondAttribute="bottom" constant="8" id="958-eI-hf8"/>
+                <constraint firstItem="jTj-VC-Dbe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="B29-je-tHo"/>
+                <constraint firstAttribute="trailing" secondItem="ip8-n4-Aij" secondAttribute="trailing" constant="8" id="PxM-zz-RjC"/>
+                <constraint firstItem="jTj-VC-Dbe" firstAttribute="top" secondItem="mq2-AP-T7O" secondAttribute="bottom" constant="8" id="Q3V-IY-DXe"/>
+                <constraint firstItem="mq2-AP-T7O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XxC-ii-j8L"/>
+                <constraint firstItem="ip8-n4-Aij" firstAttribute="leading" secondItem="jTj-VC-Dbe" secondAttribute="trailing" constant="8" id="dbq-2E-tPN"/>
+                <constraint firstAttribute="bottom" secondItem="ip8-n4-Aij" secondAttribute="bottom" constant="28" id="ncn-k6-N0n"/>
+                <constraint firstItem="mq2-AP-T7O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ugN-qz-VKY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="brightnessView" destination="ip8-n4-Aij" id="UTA-Gr-TLF"/>
+                <outlet property="colorCollectionView" destination="jTj-VC-Dbe" id="qu0-kL-WfZ"/>
+                <outlet property="hideViewButton" destination="mq2-AP-T7O" id="N8W-14-yzG"/>
+            </connections>
+            <point key="canvasLocation" x="386" y="253.5"/>
+        </view>
+    </objects>
+</document>
