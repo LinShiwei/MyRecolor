@@ -52,7 +52,22 @@ class Node {
         self.value = value
     }
 }
-
+extension UInt8 {
+    
+    func absoluteDifference(subtrahend: UInt8) -> Bool {
+        let difference : UInt8
+        if (self > subtrahend) {
+            difference = self - subtrahend;
+        } else {
+            difference = subtrahend - self;
+        }
+        if difference < 4 {
+            return false
+        }else{
+            return true
+        }
+    }
+}
 extension UIImageView {
     func buckerFill(touchPoint:CGPoint, replacementColor:UIColor){
         
@@ -64,43 +79,52 @@ extension UIImageView {
             print("fail to create context")
             return
         }
-//        print(touchPoint)
         let touchPointInImage = convertPointToImage(touchPoint)
-//        print(touchPointInImage)
-        let replacementRed, replacementGreen, replacementBlue, replacementAlpha : CUnsignedChar
-        let replacementColorRef = CGColorGetComponents(replacementColor.CGColor)
-        if(CGColorGetNumberOfComponents(replacementColor.CGColor) == 2) {
-            replacementRed = CUnsignedChar(replacementColorRef[0] * 255) // CUnsignedChar
-            replacementGreen = CUnsignedChar(replacementColorRef[0] * 255)
-            replacementBlue = CUnsignedChar(replacementColorRef[0] * 255)
-            replacementAlpha = CUnsignedChar(replacementColorRef[1])
-        } else {
-            replacementRed = CUnsignedChar(replacementColorRef[0] * 255)
-            replacementGreen = CUnsignedChar(replacementColorRef[1] * 255)
-            replacementBlue = CUnsignedChar(replacementColorRef[2] * 255)
-            replacementAlpha = CUnsignedChar(replacementColorRef[3])
-        }
-        
         let width = CGImageGetWidth(self.image!.CGImage)
         let height = CGImageGetHeight(self.image!.CGImage)
-        let rect = CGRect(x: 0, y: 0, width: width, height: height)
-        CGContextClearRect(bitmapContext, rect)
+        CGContextClearRect(bitmapContext, CGRect(x: 0, y: 0, width: width, height: height))
         
-        CGContextDrawImage(bitmapContext, rect, self.image!.CGImage)
+        CGContextDrawImage(bitmapContext, CGRect(x: 0, y: 0, width: width, height: height), self.image!.CGImage)
         let data = CGBitmapContextGetData(bitmapContext)
         let dataType = UnsafeMutablePointer<UInt8>(data)
         
         let targetColor = colorAtPoint(touchPointInImage, inData: dataType)
         guard targetColor != UIColor(red: 0, green: 0, blue: 0, alpha: 1) else{return}
+        let targetColorRed, targetColorGreen, targetColorBlue : UInt8
+        let targetColorColorRef = CGColorGetComponents(targetColor.CGColor)
+        if(CGColorGetNumberOfComponents(targetColor.CGColor) == 2) {
+            targetColorRed = UInt8(targetColorColorRef[0] * 255) // UInt8
+            targetColorGreen = UInt8(targetColorColorRef[0] * 255)
+            targetColorBlue = UInt8(targetColorColorRef[0] * 255)
+//            targetColorAlpha = UInt8(targetColorColorRef[1])
+        } else {
+            targetColorRed = UInt8(targetColorColorRef[0] * 255)
+            targetColorGreen = UInt8(targetColorColorRef[1] * 255)
+            targetColorBlue = UInt8(targetColorColorRef[2] * 255)
+//            targetColorAlpha = UInt8(targetColorColorRef[3])
+        }
+        let replacementRed, replacementGreen, replacementBlue : UInt8
+        let replacementColorRef = CGColorGetComponents(replacementColor.CGColor)
+        if(CGColorGetNumberOfComponents(replacementColor.CGColor) == 2) {
+            replacementRed = UInt8(replacementColorRef[0] * 255) // UInt8
+            replacementGreen = UInt8(replacementColorRef[0] * 255)
+            replacementBlue = UInt8(replacementColorRef[0] * 255)
+//            replacementAlpha = UInt8(replacementColorRef[1])
+        } else {
+            replacementRed = UInt8(replacementColorRef[0] * 255)
+            replacementGreen = UInt8(replacementColorRef[1] * 255)
+            replacementBlue = UInt8(replacementColorRef[2] * 255)
+//            replacementAlpha = UInt8(replacementColorRef[3])
+        }
+        
         let stack = Stack()
         stack.push(touchPointInImage)
         while(!stack.isEmpty()){
             let point = stack.pop()!
             
-            let nodeColor = colorAtPoint(point, inData: dataType)
-            if targetColor == replacementColor {
+            if !targetColorRed.absoluteDifference(replacementRed) && !targetColorBlue.absoluteDifference(replacementBlue) && !targetColorGreen.absoluteDifference(replacementGreen) {
                 continue
-            }else if nodeColor != targetColor{
+            }else if colorAtPoint(point, inData: dataType) != targetColor{
                 continue
             }else{
                 replaceColorAtPoint(point, inData: dataType, withColorRed: replacementRed, Green: replacementGreen, Blue: replacementBlue)
@@ -144,14 +168,14 @@ extension UIImageView {
         }
         return context
     }
-    private func colorAtPoint(point:CGPoint,inData dataType:UnsafeMutablePointer<UInt8>)->UIColor {
+    private func colorAtPoint(point:CGPoint,inData dataType:UnsafeMutablePointer<UInt8>)->UIColor{
         let pixelInfo = Int((self.image!.size.width * point.y) + point.x) * 4
         let red = CGFloat(dataType[pixelInfo+1])/CGFloat(255)
         let green = CGFloat(dataType[pixelInfo+2])/CGFloat(255)
         let blue = CGFloat(dataType[pixelInfo+3])/CGFloat(255)
         return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
-    private func replaceColorAtPoint(point:CGPoint,inData dataType:UnsafeMutablePointer<UInt8>,withColorRed red:CUnsignedChar,Green green:CUnsignedChar,Blue blue:CUnsignedChar){
+    private func replaceColorAtPoint(point:CGPoint,inData dataType:UnsafeMutablePointer<UInt8>,withColorRed red:UInt8,Green green:UInt8,Blue blue:UInt8){
         let pixelInfo = Int((self.image!.size.width * point.y) + point.x) * 4
         dataType[pixelInfo+0] = 255
         dataType[pixelInfo+1] = red
@@ -159,8 +183,17 @@ extension UIImageView {
         dataType[pixelInfo+3] = blue
     }
     private func convertPointToImage(imageViewPoint:CGPoint)->CGPoint{
-        let x = Int(self.image!.size.width * imageViewPoint.x / self.frame.size.width)
-        let y = Int(self.image!.size.height * imageViewPoint.y / self.frame.size.height)
+        var scale : CGFloat = 1
+        if let superView = self.superview as? UIScrollView{
+            scale = superView.zoomScale
+        }
+        let x = Int(self.image!.size.width * imageViewPoint.x * scale / self.frame.size.width)
+        let y = Int(self.image!.size.height * imageViewPoint.y * scale / self.frame.size.height)
+        
+        print("before convert \(imageViewPoint)")
+        print("imageViewFrame \(self.frame.size)")
+        print("after convert  \(CGPoint(x:x,y:y))")
+        
         return CGPoint(x: x, y: y)
         
     }

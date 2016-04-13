@@ -17,28 +17,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSf-Tw-lAz">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <gestureRecognizers/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="600" id="DKA-RV-omD"/>
+                                            <constraint firstAttribute="width" constant="600" id="lzs-72-BVL"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="DKA-RV-omD"/>
+                                                <exclude reference="lzs-72-BVL"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="d5i-Hs-pnM" appends="YES" id="enW-se-jtg"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.034599880513079273" blue="0.92589109421363602" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="nlT-0t-ZOO" firstAttribute="top" secondItem="TSf-Tw-lAz" secondAttribute="top" id="46f-oY-dT2"/>
+                                    <constraint firstAttribute="bottom" secondItem="nlT-0t-ZOO" secondAttribute="bottom" id="IpA-Sd-bvl"/>
+                                    <constraint firstAttribute="trailing" secondItem="nlT-0t-ZOO" secondAttribute="trailing" id="JJM-Qt-oFD"/>
+                                    <constraint firstItem="nlT-0t-ZOO" firstAttribute="leading" secondItem="TSf-Tw-lAz" secondAttribute="leading" id="Yni-QX-eqZ"/>
+                                </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="d5i-Hs-pnM" appends="YES" id="enW-se-jtg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uX4-vk-y7v"/>
                                 </connections>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="nlT-0t-ZOO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="H55-SF-EAH"/>
-                            <constraint firstItem="nlT-0t-ZOO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VQg-Wv-kQc"/>
-                            <constraint firstAttribute="trailing" secondItem="nlT-0t-ZOO" secondAttribute="trailing" id="WfQ-SB-shb"/>
-                            <constraint firstItem="nlT-0t-ZOO" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ogJ-cE-JC6"/>
+                            <constraint firstItem="TSf-Tw-lAz" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="5Ap-o8-oTW"/>
+                            <constraint firstAttribute="trailing" secondItem="TSf-Tw-lAz" secondAttribute="trailing" id="8rt-au-p77"/>
+                            <constraint firstItem="TSf-Tw-lAz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dai-1s-IZN"/>
+                            <constraint firstItem="TSf-Tw-lAz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wER-dO-cc0"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="4GP-3X-rl7" appends="YES" id="C9f-5x-MCp"/>
+                            <outletCollection property="gestureRecognizers" destination="vkR-aZ-Xr2" appends="YES" id="Lpu-aP-U6U"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="imageScrollView" destination="TSf-Tw-lAz" id="0Yq-tV-pQw"/>
                         <outlet property="imageView" destination="nlT-0t-ZOO" id="MxZ-HA-UZZ"/>
+                        <outlet property="imageViewBottomConstraint" destination="IpA-Sd-bvl" id="wcu-xM-EtD"/>
+                        <outlet property="imageViewLeadingConstraint" destination="Yni-QX-eqZ" id="jE7-Vg-xPd"/>
+                        <outlet property="imageViewTopConstraint" destination="46f-oY-dT2" id="O6N-sV-0ty"/>
+                        <outlet property="imageViewTrailingConstraint" destination="JJM-Qt-oFD" id="C5q-en-Mny"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,7 +78,12 @@
                         <action selector="taptap:" destination="BYZ-38-t0r" id="7R6-wa-d7L"/>
                     </connections>
                 </tapGestureRecognizer>
-                <swipeGestureRecognizer direction="up" numberOfTouchesRequired="2" id="4GP-3X-rl7">
+                <swipeGestureRecognizer direction="down" id="vkR-aZ-Xr2">
+                    <connections>
+                        <action selector="swipeToSave:" destination="BYZ-38-t0r" id="TFv-Ib-KWf"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="4GP-3X-rl7">
                     <connections>
                         <action selector="swipeToDismiss:" destination="BYZ-38-t0r" id="CZq-iT-KrO"/>
                     </connections>
@@ -78,7 +114,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test1" translatesAutoresizingMaskIntoConstraints="NO" id="tde-uU-fYg">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tde-uU-fYg">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
@@ -111,13 +147,13 @@
                             <constraint firstAttribute="trailing" secondItem="KW8-z5-PaA" secondAttribute="trailing" id="dnw-aV-4AQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="albumCollectionView" destination="KW8-z5-PaA" id="nZi-VN-5kH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbk-ee-ia5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-328" y="354"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="test1" width="500" height="500"/>
-    </resources>
 </document>

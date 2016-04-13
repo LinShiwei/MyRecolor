@@ -12,3 +12,17 @@ import UIKit
 let colorCollectionColumns = 16
 let colorCollectionRows = 10
 let colorCellPadding : CGFloat = 3
+
+let appFilePath = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]) + "/"
+
+let imageSourcePrefix = "test"
+let imageSourceIndexStart = 1
+let imageSourceIndexEnd = 5
+
+
+struct theme {
+    let backgroundColor : UIColor
+    let borderLineColor : UIColor
+    
+    
+}

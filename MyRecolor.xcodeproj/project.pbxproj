@@ -17,6 +17,14 @@
 		560A46091CB4D5B80030AA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560A46081CB4D5B80030AA0E /* Assets.xcassets */; };
 		560A460C1CB4D5B80030AA0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560A460A1CB4D5B80030AA0E /* LaunchScreen.storyboard */; };
 		560A46171CB4D5B80030AA0E /* MyRecolorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */; };
+		563597621CBE1A1C0062A764 /* ImageSource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 563597601CBE1A1C0062A764 /* ImageSource.xcdatamodeld */; };
+		563597641CBE1C2C0062A764 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563597631CBE1C2C0062A764 /* CoreData.framework */; };
+		5635976B1CBE2C3A0062A764 /* test1.png in Resources */ = {isa = PBXBuildFile; fileRef = 563597661CBE2C3A0062A764 /* test1.png */; };
+		5635976C1CBE2C3A0062A764 /* test2.png in Resources */ = {isa = PBXBuildFile; fileRef = 563597671CBE2C3A0062A764 /* test2.png */; };
+		5635976D1CBE2C3A0062A764 /* test3.png in Resources */ = {isa = PBXBuildFile; fileRef = 563597681CBE2C3A0062A764 /* test3.png */; };
+		5635976E1CBE2C3A0062A764 /* test4.png in Resources */ = {isa = PBXBuildFile; fileRef = 563597691CBE2C3A0062A764 /* test4.png */; };
+		5635976F1CBE2C3A0062A764 /* test5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5635976A1CBE2C3A0062A764 /* test5.png */; };
+		563597711CBE39A50062A764 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563597701CBE39A50062A764 /* ImageSource.swift */; };
 		564736541CB7DCBD001E291C /* tempCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564736531CB7DCBD001E291C /* tempCode.swift */; };
 		564736581CB7DFBD001E291C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564736571CB7DFBD001E291C /* MainViewController.swift */; };
 		5647365D1CB7E7BA001E291C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */; };
@@ -52,6 +60,14 @@
 		560A46121CB4D5B80030AA0E /* MyRecolorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRecolorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecolorTests.swift; sourceTree = "<group>"; };
 		560A46181CB4D5B80030AA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		563597611CBE1A1C0062A764 /* ImageSource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageSource.xcdatamodel; sourceTree = "<group>"; };
+		563597631CBE1C2C0062A764 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		563597661CBE2C3A0062A764 /* test1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test1.png; sourceTree = "<group>"; };
+		563597671CBE2C3A0062A764 /* test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test2.png; sourceTree = "<group>"; };
+		563597681CBE2C3A0062A764 /* test3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test3.png; sourceTree = "<group>"; };
+		563597691CBE2C3A0062A764 /* test4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test4.png; sourceTree = "<group>"; };
+		5635976A1CBE2C3A0062A764 /* test5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test5.png; sourceTree = "<group>"; };
+		563597701CBE39A50062A764 /* ImageSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		564736531CB7DCBD001E291C /* tempCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tempCode.swift; sourceTree = "<group>"; };
 		564736571CB7DFBD001E291C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563597641CBE1C2C0062A764 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +100,7 @@
 		560A45F51CB4D5B80030AA0E = {
 			isa = PBXGroup;
 			children = (
+				563597631CBE1C2C0062A764 /* CoreData.framework */,
 				560A46001CB4D5B80030AA0E /* MyRecolor */,
 				560A46151CB4D5B80030AA0E /* MyRecolorTests */,
 				560A45FF1CB4D5B80030AA0E /* Products */,
@@ -101,11 +119,13 @@
 		560A46001CB4D5B80030AA0E /* MyRecolor */ = {
 			isa = PBXGroup;
 			children = (
+				563597651CBE2C3A0062A764 /* content */,
 				564736591CB7E13E001E291C /* MainView */,
 				5647365A1CB7E156001E291C /* PaintView */,
 				5647365B1CB7E184001E291C /* support */,
 				560843291CB68AB100AC94AE /* MyImageView.swift */,
 				564736531CB7DCBD001E291C /* tempCode.swift */,
+				563597601CBE1A1C0062A764 /* ImageSource.xcdatamodeld */,
 			);
 			path = MyRecolor;
 			sourceTree = "<group>";
@@ -119,12 +139,25 @@
 			path = MyRecolorTests;
 			sourceTree = "<group>";
 		};
+		563597651CBE2C3A0062A764 /* content */ = {
+			isa = PBXGroup;
+			children = (
+				563597661CBE2C3A0062A764 /* test1.png */,
+				563597671CBE2C3A0062A764 /* test2.png */,
+				563597681CBE2C3A0062A764 /* test3.png */,
+				563597691CBE2C3A0062A764 /* test4.png */,
+				5635976A1CBE2C3A0062A764 /* test5.png */,
+			);
+			path = content;
+			sourceTree = "<group>";
+		};
 		564736591CB7E13E001E291C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
 				564736571CB7DFBD001E291C /* MainViewController.swift */,
 				5647365C1CB7E7BA001E291C /* ImageCollectionViewCell.swift */,
 				56477F201CB8BC370052123D /* AlbumCollectionViewLayout.swift */,
+				563597701CBE39A50062A764 /* ImageSource.swift */,
 			);
 			name = MainView;
 			sourceTree = "<group>";
@@ -247,10 +280,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5635976E1CBE2C3A0062A764 /* test4.png in Resources */,
 				560A460C1CB4D5B80030AA0E /* LaunchScreen.storyboard in Resources */,
 				560A46091CB4D5B80030AA0E /* Assets.xcassets in Resources */,
+				5635976C1CBE2C3A0062A764 /* test2.png in Resources */,
 				5604DA681CB91FE00041045E /* PaletteView.xib in Resources */,
+				5635976B1CBE2C3A0062A764 /* test1.png in Resources */,
 				560A46071CB4D5B80030AA0E /* Main.storyboard in Resources */,
+				5635976D1CBE2C3A0062A764 /* test3.png in Resources */,
+				5635976F1CBE2C3A0062A764 /* test5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +307,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				56477F211CB8BC370052123D /* AlbumCollectionViewLayout.swift in Sources */,
+				563597711CBE39A50062A764 /* ImageSource.swift in Sources */,
 				5604DA641CB8F6760041045E /* ImageViewFloodFillAlgorithm.swift in Sources */,
+				563597621CBE1A1C0062A764 /* ImageSource.xcdatamodeld in Sources */,
 				560A46041CB4D5B80030AA0E /* PaintingViewController.swift in Sources */,
 				56ECC5DE1CBA2EBB00C4A856 /* BrightnessView.swift in Sources */,
 				564736541CB7DCBD001E291C /* tempCode.swift in Sources */,
@@ -482,6 +522,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		563597601CBE1A1C0062A764 /* ImageSource.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				563597611CBE1A1C0062A764 /* ImageSource.xcdatamodel */,
+			);
+			currentVersion = 563597611CBE1A1C0062A764 /* ImageSource.xcdatamodel */;
+			path = ImageSource.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 560A45F61CB4D5B80030AA0E /* Project object */;
 }

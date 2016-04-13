@@ -31,13 +31,15 @@ class BrightnessView: UIView {
     private func configureGradientLayer(){
         let colors = [UIColor.whiteColor().CGColor as AnyObject,UIColor.blackColor().CGColor as AnyObject]
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: 30, height: 400-28-38)
+        gradientLayer.frame = CGRect(x: 8, y: 0, width: 30, height: 400-28-38)
+        gradientLayer.borderColor = UIColor.grayColor().CGColor
+        gradientLayer.borderWidth = 2
         gradientLayer.colors = colors
         layer.addSublayer(gradientLayer)
     }
     private func configureIndicator(){
         let indicatorLayer = CAShapeLayer()
-        indicatorLayer.position = CGPoint(x: 0, y: indicatorHeight/2)
+        indicatorLayer.position = CGPoint(x: 8, y: indicatorHeight/2)
         indicatorLayer.path = drawIndicatorPath().CGPath
         indicatorLayer.fillColor = UIColor.whiteColor().CGColor
         indicatorLayer.lineJoin = kCALineJoinRound

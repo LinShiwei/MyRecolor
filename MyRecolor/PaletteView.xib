@@ -21,6 +21,13 @@
                         <action selector="hideView:" destination="iN0-l3-epB" eventType="touchUpInside" id="Kuy-Ic-RQq"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ip8-n4-Aij" customClass="BrightnessView" customModule="MyRecolor" customModuleProvider="target">
+                    <rect key="frame" x="468" y="38" width="38" height="223"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="OIh-dw-qqt"/>
+                    </constraints>
+                </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jTj-VC-Dbe" customClass="ColorCollectionView" customModule="MyRecolor" customModuleProvider="target">
                     <rect key="frame" x="8" y="38" width="460" height="223"/>
                     <collectionViewLayout key="collectionViewLayout" id="dT2-6u-pcn" customClass="ColorCollectionViewLayout" customModule="MyRecolor" customModuleProvider="target"/>
@@ -29,13 +36,6 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="83k-KU-DnJ"/>
                     </connections>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ip8-n4-Aij" customClass="BrightnessView" customModule="MyRecolor" customModuleProvider="target">
-                    <rect key="frame" x="476" y="38" width="30" height="223"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="OIh-dw-qqt"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -46,7 +46,7 @@
                 <constraint firstAttribute="trailing" secondItem="ip8-n4-Aij" secondAttribute="trailing" constant="8" id="PxM-zz-RjC"/>
                 <constraint firstItem="jTj-VC-Dbe" firstAttribute="top" secondItem="mq2-AP-T7O" secondAttribute="bottom" constant="8" id="Q3V-IY-DXe"/>
                 <constraint firstItem="mq2-AP-T7O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XxC-ii-j8L"/>
-                <constraint firstItem="ip8-n4-Aij" firstAttribute="leading" secondItem="jTj-VC-Dbe" secondAttribute="trailing" constant="8" id="dbq-2E-tPN"/>
+                <constraint firstItem="ip8-n4-Aij" firstAttribute="leading" secondItem="jTj-VC-Dbe" secondAttribute="trailing" id="dbq-2E-tPN"/>
                 <constraint firstAttribute="bottom" secondItem="ip8-n4-Aij" secondAttribute="bottom" constant="28" id="ncn-k6-N0n"/>
                 <constraint firstItem="mq2-AP-T7O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ugN-qz-VKY"/>
             </constraints>
