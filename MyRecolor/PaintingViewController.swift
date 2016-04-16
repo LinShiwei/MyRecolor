@@ -19,7 +19,7 @@ class PaintingViewController: UIViewController {
     
     weak var delegate : SaveImageDelegate?
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: PaintingImageView!
     @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!

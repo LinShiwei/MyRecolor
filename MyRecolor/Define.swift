@@ -10,15 +10,18 @@ import Foundation
 import UIKit
 
 let colorCollectionColumns = 16
-let colorCollectionRows = 10
+let colorCollectionRows = 6
 let colorCellPadding : CGFloat = 3
 
 let appFilePath = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]) + "/"
 
 let imageSourcePrefix = "test"
 let imageSourceIndexStart = 1
-let imageSourceIndexEnd = 5
+let imageSourceIndexEnd = 6
 
+let paletteViewWidth :CGFloat = 600
+let paletteViewHeight:CGFloat = 300
+let paletteViewInvisableHeight:CGFloat = 20
 
 struct theme {
     let backgroundColor : UIColor

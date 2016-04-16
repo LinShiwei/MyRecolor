@@ -10,17 +10,16 @@ import UIKit
 import CoreData
 class ImageSource: NSObject {
     var picturePaths = [String]()
-    
+    func saveImage(image:UIImage,ofIndex index:Int){
+        let data = UIImagePNGRepresentation(image)
+        data!.writeToFile(picturePaths[index], atomically: true)
+    }
     override init() {
         super.init()
         let imageObjects = initImageObjects()
         for object in imageObjects {
             picturePaths.append(appFilePath + (object.valueForKey("name") as! String))
         }
-    }
-    func saveImage(image:UIImage,ofIndex index:Int){
-        let data = UIImagePNGRepresentation(image)
-        data!.writeToFile(picturePaths[index], atomically: true)
     }
     private func initImageObjects()->[NSManagedObject]{
         let managedContext = getManagedContext()

@@ -68,7 +68,7 @@ extension UInt8 {
         }
     }
 }
-extension UIImageView {
+extension PaintingImageView {
     func buckerFill(touchPoint:CGPoint, replacementColor:UIColor){
         
         guard let _ = self.image else {
@@ -131,7 +131,7 @@ extension UIImageView {
                 if (point.x > 0) {
                     stack.push(CGPoint(x: point.x - 1, y: point.y))
                 }
-                if (point.x < CGFloat(width)) {
+                if (point.x < CGFloat(width)-1) {
                     stack.push(CGPoint(x: point.x + 1, y: point.y))
                 }
                 
@@ -139,7 +139,7 @@ extension UIImageView {
                     stack.push(CGPoint(x: point.x, y: point.y - 1))
                 }
                 
-                if (point.y < CGFloat(height)) {
+                if (point.y < CGFloat(height)-1) {
                     stack.push(CGPoint(x: point.x, y: point.y + 1))
                 }
             }

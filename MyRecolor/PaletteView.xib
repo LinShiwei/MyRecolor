@@ -11,12 +11,14 @@
             <rect key="frame" x="0.0" y="0.0" width="514" height="289"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mq2-AP-T7O">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mq2-AP-T7O" customClass="PaletteViewHeadButton" customModule="MyRecolor" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="514" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="cIn-rw-PgB"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="Current Color">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="hideView:" destination="iN0-l3-epB" eventType="touchUpInside" id="Kuy-Ic-RQq"/>
                     </connections>
@@ -30,6 +32,7 @@
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jTj-VC-Dbe" customClass="ColorCollectionView" customModule="MyRecolor" customModuleProvider="target">
                     <rect key="frame" x="8" y="38" width="460" height="223"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewLayout key="collectionViewLayout" id="dT2-6u-pcn" customClass="ColorCollectionViewLayout" customModule="MyRecolor" customModuleProvider="target"/>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="Hde-F8-QnH"/>
@@ -54,7 +57,7 @@
             <connections>
                 <outlet property="brightnessView" destination="ip8-n4-Aij" id="UTA-Gr-TLF"/>
                 <outlet property="colorCollectionView" destination="jTj-VC-Dbe" id="qu0-kL-WfZ"/>
-                <outlet property="hideViewButton" destination="mq2-AP-T7O" id="N8W-14-yzG"/>
+                <outlet property="hideViewButton" destination="mq2-AP-T7O" id="S0F-DN-bjV"/>
             </connections>
             <point key="canvasLocation" x="386" y="253.5"/>
         </view>

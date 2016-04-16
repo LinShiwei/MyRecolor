@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Painting View Controller-->
@@ -14,13 +15,13 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSf-Tw-lAz">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="1366"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO" customClass="PaintingImageView" customModule="MyRecolor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -38,7 +39,7 @@
                                         </connections>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.034599880513079273" blue="0.92589109421363602" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="nlT-0t-ZOO" firstAttribute="top" secondItem="TSf-Tw-lAz" secondAttribute="top" id="46f-oY-dT2"/>
                                     <constraint firstAttribute="bottom" secondItem="nlT-0t-ZOO" secondAttribute="bottom" id="IpA-Sd-bvl"/>
@@ -65,7 +66,7 @@
                     </view>
                     <connections>
                         <outlet property="imageScrollView" destination="TSf-Tw-lAz" id="0Yq-tV-pQw"/>
-                        <outlet property="imageView" destination="nlT-0t-ZOO" id="MxZ-HA-UZZ"/>
+                        <outlet property="imageView" destination="nlT-0t-ZOO" id="agQ-mU-wng"/>
                         <outlet property="imageViewBottomConstraint" destination="IpA-Sd-bvl" id="wcu-xM-EtD"/>
                         <outlet property="imageViewLeadingConstraint" destination="Yni-QX-eqZ" id="jE7-Vg-xPd"/>
                         <outlet property="imageViewTopConstraint" destination="46f-oY-dT2" id="O6N-sV-0ty"/>
@@ -89,7 +90,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="411" y="354"/>
+            <point key="canvasLocation" x="639.5" y="354"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="b74-Ag-ddm">
@@ -100,11 +101,15 @@
                         <viewControllerLayoutGuide type="bottom" id="CDs-Fd-dfp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FRk-j1-snx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KW8-z5-PaA">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background2" translatesAutoresizingMaskIntoConstraints="NO" id="QqP-xv-Wzp">
+                                <rect key="frame" x="196" y="321" width="578" height="755"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KW8-z5-PaA">
+                                <rect key="frame" x="0.0" y="220" width="1024" height="1026"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="jcu-4Z-ZkU" customClass="AlbumCollectionViewLayout" customModule="MyRecolor" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCollectionViewCell" id="PFr-w9-6Vx" customClass="ImageCollectionViewCell" customModule="MyRecolor" customModuleProvider="target">
@@ -116,7 +121,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tde-uU-fYg">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -141,12 +146,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KW8-z5-PaA" firstAttribute="bottom" secondItem="CDs-Fd-dfp" secondAttribute="top" id="DvF-Ug-g6b"/>
-                            <constraint firstItem="KW8-z5-PaA" firstAttribute="leading" secondItem="FRk-j1-snx" secondAttribute="leading" id="NIh-iE-5SB"/>
-                            <constraint firstItem="KW8-z5-PaA" firstAttribute="top" secondItem="FRk-j1-snx" secondAttribute="top" constant="20" id="UWM-VO-DZM"/>
-                            <constraint firstAttribute="trailing" secondItem="KW8-z5-PaA" secondAttribute="trailing" id="dnw-aV-4AQ"/>
+                            <constraint firstItem="CDs-Fd-dfp" firstAttribute="top" secondItem="QqP-xv-Wzp" secondAttribute="bottom" id="0NW-MR-lQ4"/>
+                            <constraint firstItem="CDs-Fd-dfp" firstAttribute="top" secondItem="KW8-z5-PaA" secondAttribute="bottom" constant="120" id="8ot-JI-5KQ"/>
+                            <constraint firstItem="QqP-xv-Wzp" firstAttribute="top" secondItem="FRk-j1-snx" secondAttribute="topMargin" id="9rT-AP-toC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QqP-xv-Wzp" secondAttribute="trailing" constant="-20" id="CXt-xW-VPE"/>
+                            <constraint firstItem="KW8-z5-PaA" firstAttribute="top" secondItem="0Si-vb-Ski" secondAttribute="bottom" constant="200" id="CrM-xL-LzF"/>
+                            <constraint firstItem="QqP-xv-Wzp" firstAttribute="leading" secondItem="FRk-j1-snx" secondAttribute="leadingMargin" constant="-20" id="NZv-Pn-0E2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KW8-z5-PaA" secondAttribute="trailing" constant="-20" id="SC2-0Q-fLu"/>
+                            <constraint firstItem="KW8-z5-PaA" firstAttribute="leading" secondItem="FRk-j1-snx" secondAttribute="leadingMargin" constant="-20" id="YgE-b4-JnL"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPadPro"/>
                     <connections>
                         <outlet property="albumCollectionView" destination="KW8-z5-PaA" id="nZi-VN-5kH"/>
                     </connections>
@@ -156,4 +166,7 @@
             <point key="canvasLocation" x="-328" y="354"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background2" width="768" height="1024"/>
+    </resources>
 </document>

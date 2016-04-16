@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initPictures()
+//        albumCollectionView.contentInset = UIEdgeInsets(top: 20, left: -20, bottom: 20, right: -20)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +45,7 @@ extension MainViewController: UICollectionViewDataSource{
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCollectionViewCell", forIndexPath: indexPath) as! ImageCollectionViewCell
         cell.imageView.image = pictures[indexPath.row]
-        cell.backgroundColor = UIColor.redColor()
+        
         return cell
     }
 }

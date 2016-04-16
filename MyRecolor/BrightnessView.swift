@@ -13,10 +13,12 @@ class BrightnessView: UIView {
     let indicatorWidth = 24
     var brightness : CGFloat = 1 {
         didSet{
-            if let views = self.superview?.subviews{
-                for view in views where view is ColorCollectionView {
+            if let superView = self.superview {
+                for view in superView.subviews where view is ColorCollectionView {
                     (view as! ColorCollectionView).reloadData()
                 }
+                (superView as! PaletteView).refreshCurrentColor()
+
             }
         }
     }
@@ -31,7 +33,7 @@ class BrightnessView: UIView {
     private func configureGradientLayer(){
         let colors = [UIColor.whiteColor().CGColor as AnyObject,UIColor.blackColor().CGColor as AnyObject]
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 8, y: 0, width: 30, height: 400-28-38)
+        gradientLayer.frame = CGRect(x: 8, y: 0, width: 30, height: paletteViewHeight-28-38)
         gradientLayer.borderColor = UIColor.grayColor().CGColor
         gradientLayer.borderWidth = 2
         gradientLayer.colors = colors
