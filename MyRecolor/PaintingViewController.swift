@@ -30,7 +30,6 @@ class PaintingViewController: UIViewController {
     //MARK: IBAction
     @IBAction func taptap(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(imageView)
-        print("taptap point \(point)")
         imageView.buckerFill(point, replacementColor: paletteView.currentColor)
     }
     @IBAction func swipeToDismiss(sender: UISwipeGestureRecognizer) {
@@ -47,7 +46,6 @@ class PaintingViewController: UIViewController {
             if error == nil {
                 let alert = UIAlertController(title: "Congratulations", message: "Save succeed!", preferredStyle: .Alert)
                 let saveAction = UIAlertAction(title: "OK", style: .Default,handler: { (action:UIAlertAction) -> Void in
-                    
                 })
                 alert.addAction(saveAction)
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -66,7 +64,6 @@ class PaintingViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         updateMinZoomScaleForSize(view.bounds.size)
     }
     private func configurePaletteView(){
@@ -87,7 +84,6 @@ class PaintingViewController: UIViewController {
         imageScrollView.minimumZoomScale = minScale
         imageScrollView.maximumZoomScale = 4
         imageScrollView.zoomScale = minScale
-//        print("zoomScale \(imageScrollView.zoomScale)")
 
     }
     private func updateConstraintsForSize(size: CGSize) {

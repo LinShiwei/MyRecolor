@@ -9,7 +9,8 @@
 import UIKit
 import AVFoundation
 class ZoomPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-    var cell : ImageCollectionViewCell?
+    var cell: ImageCollectionViewCell!
+    var originFrame, finalFrame: CGRect!
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 2
     }
@@ -22,14 +23,14 @@ class ZoomPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
         }
         
         let imageView = cell!.snapshotViewAfterScreenUpdates(true)
-        imageView.frame.origin = cell!.convertRect(windowBounds, toView: nil).origin
-        let finalFrame = AVMakeRectWithAspectRatioInsideRect(imageView.frame.size, windowBounds)
+        imageView.frame.origin = originFrame.origin
         containerView.addSubview(toVC.view)
         containerView.addSubview(imageView)
         toVC.view.alpha = 0
+        cell.alpha = 0
         
         UIView.animateWithDuration(1.2, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
-            imageView.frame = finalFrame
+            imageView.frame = self.finalFrame
             }, completion:  nil)
         
         UIView.animateWithDuration(0.8, delay: 0.03, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in

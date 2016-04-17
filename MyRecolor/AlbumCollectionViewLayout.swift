@@ -48,21 +48,18 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
             
                 let indexPath = NSIndexPath(forItem: item, inSection: 0)
     
-//                let rect = CGRect(x: xOffset[row], y: yOffset[row], width: columnWidth, height: rowHeight)
-//                let imageSize = delegate.collectionView(collectionView!, sizeForPhotoAtIndexPath: indexPath)
-//                let frame  = AVMakeRectWithAspectRatioInsideRect(imageSize, rect)
-//                let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
-                let rect = CGRect(x: xOffset[row]+cellPadding, y: yOffset[row]+cellPadding, width: columnWidth-cellPadding*2, height: rowHeight-cellPadding*2)
+                let rect = CGRect(x: xOffset[row], y: yOffset[row], width: columnWidth, height: rowHeight)
+                
+                let frame = CGRectInset(rect, cellPadding, cellPadding)
                 let imageSize = delegate.collectionView(collectionView!, sizeForPhotoAtIndexPath: indexPath)
-                let frame  = AVMakeRectWithAspectRatioInsideRect(imageSize, rect)
-                let insetFrame = CGRectInset(frame, 0, 0)
+                let insetFrame  = AVMakeRectWithAspectRatioInsideRect(imageSize, frame)
                 
                 
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.frame = insetFrame
                 cache.append(attributes)
                 
-                contentWidth = max(contentWidth, CGRectGetMaxX(frame))
+                contentWidth = max(contentWidth, CGRectGetMaxX(rect))
                 xOffset[row] = xOffset[row] + columnWidth
                 
                 row = row >= (numberOfRows - 1) ? 0 : ++row

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 class MainViewController: UIViewController {
 
     let source = ImageSource()
@@ -32,7 +33,6 @@ class MainViewController: UIViewController {
             destinationViewController.paintingImage = cell.imageView.image
             destinationViewController.delegate = self
             destinationViewController.transitioningDelegate = self
-
         }
     }
     func initPictures(){
@@ -53,12 +53,7 @@ extension MainViewController: UICollectionViewDataSource{
         return cell
     }
 }
-//MARK: CollectionView Delegate
-extension MainViewController: UICollectionViewDelegate{
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-}
+
 //MARK: SaveImage Delegate
 extension MainViewController: SaveImageDelegate{
     func saveImage(image : UIImage){
@@ -67,7 +62,7 @@ extension MainViewController: SaveImageDelegate{
             return
         }
         pictures[indexPath[0].row] = image
-        albumCollectionView.reloadData()
+//        albumCollectionView.reloadData()
         source.saveImage(image, ofIndex: indexPath[0].row)
     }
 }
@@ -78,14 +73,19 @@ extension MainViewController: UIViewControllerTransitioningDelegate{
             return zoomPresentAnimationController
         }
         zoomPresentAnimationController.cell = cell
+        zoomPresentAnimationController.originFrame = CGRect(origin: cell.convertPoint(CGPoint(x: 0, y: 0), toView: nil), size: cell.frame.size)
+        zoomPresentAnimationController.finalFrame = AVMakeRectWithAspectRatioInsideRect(cell.frame.size, windowBounds)
+        zoomDismissAnimationController.cell = cell
+        zoomDismissAnimationController.originFrame = zoomPresentAnimationController.finalFrame
+        zoomDismissAnimationController.finalFrame = zoomPresentAnimationController.originFrame
         return zoomPresentAnimationController
     }
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        zoomDismissAnimationController.destinationFrame = self.view.frame
+        
         return zoomDismissAnimationController
     }
 }
-//MARK: AlbumCollectionViewLayout Delegate 
+//MARK: AlbumCollectionViewLayout Delegate
 extension MainViewController: AlbumCollectionViewLayoutDelegate{
     func collectionView(collectionView: UICollectionView, sizeForPhotoAtIndexPath indexPath: NSIndexPath) -> CGSize {
         

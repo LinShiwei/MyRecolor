@@ -8,9 +8,7 @@
 
 import UIKit
 class PaletteView: UIView {
-    
-    
-    
+ 
     weak var imageView : UIImageView!
     var currentColor = UIColor.whiteColor() {
         didSet{
@@ -43,7 +41,6 @@ class PaletteView: UIView {
         self.bounds.size = CGSize(width: paletteViewWidth, height: paletteViewHeight)
         self.center = CGPoint(x: windowBounds.width/2, y: windowBounds.height-paletteViewHeight/2 + paletteViewInvisableHeight)
         self.backgroundColor = UIColor.whiteColor()
-        
     }
     private func configureLayer(){
         self.layer.borderWidth = 4

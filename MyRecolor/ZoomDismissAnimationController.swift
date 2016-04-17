@@ -9,9 +9,9 @@
 import UIKit
 
 class ZoomDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-    
-    var cell : ImageCollectionViewCell?
-    var destinationFrame = CGRectZero
+    var cell: ImageCollectionViewCell!
+
+    var originFrame, finalFrame : CGRect!
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 2
@@ -19,29 +19,26 @@ class ZoomDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
+        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? PaintingViewController,
             let containerView = transitionContext.containerView(),
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? MainViewController else {
                 return
         }
-        
-        let finalFrame = destinationFrame
-        
-        let snapshot = fromVC.view.snapshotViewAfterScreenUpdates(false)
-        
-        snapshot.layer.cornerRadius = 25
-        snapshot.layer.masksToBounds = true
-        
+        let snapshot = fromVC.imageView.snapshotViewAfterScreenUpdates(true)
+        snapshot.frame.origin = originFrame.origin
         containerView.addSubview(toVC.view)
         containerView.addSubview(snapshot)
-        print(fromVC)
-        print(toVC)
-        fromVC.view.hidden = true
-        UIView.animateWithDuration(0.8, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
-            snapshot.frame = finalFrame
-            }, completion:  { _ in
-//                fromVC.view.hidden = false
+        toVC.view.alpha = 0
+        UIView.animateWithDuration(1.2, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
+            snapshot.frame = self.finalFrame
+            }, completion:  nil)
+        
+        UIView.animateWithDuration(0.8, delay: 0.03, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
+            toVC.view.alpha = 1
+            }, completion: { _ in
                 snapshot.removeFromSuperview()
+                self.cell.alpha = 1
+                toVC.albumCollectionView.reloadData()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
 
