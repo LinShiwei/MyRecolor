@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+let windowBounds = UIScreen.mainScreen().bounds
+
 let colorCollectionColumns = 16
 let colorCollectionRows = 6
 let colorCellPadding : CGFloat = 3

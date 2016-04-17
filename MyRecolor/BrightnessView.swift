@@ -24,7 +24,7 @@ class BrightnessView: UIView {
     }
     
     private let indicator = UIView(frame: CGRect(x: -5, y: -16, width: 30, height: 32))
-    
+    //MARK: Init View
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureGradientLayer()
@@ -64,6 +64,7 @@ class BrightnessView: UIView {
         path.closePath()
         return path
     }
+    //MARK: PanGesture Action
     func didPan(sender:UIPanGestureRecognizer){
         let point = sender.locationInView(self)
         if point.y >= 0 && point.y < self.bounds.height {

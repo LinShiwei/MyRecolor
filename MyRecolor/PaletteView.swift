@@ -17,7 +17,6 @@ class PaletteView: UIView {
             hideViewButton.currentColor = currentColor
         }
     }
-    private let windowBounds = UIScreen.mainScreen().bounds
     
     private var isHidden = false
     
@@ -53,23 +52,20 @@ class PaletteView: UIView {
         self.layer.masksToBounds = true
     }    
     func refreshCurrentColor(){
-
-        if let indexPath = colorCollectionView.indexPathsForSelectedItems() where indexPath.count > 0 {
-            if let cell = colorCollectionView.cellForItemAtIndexPath(indexPath[0]){
-                currentColor = cell.backgroundColor!
-            }
+        if let indexPath = colorCollectionView.indexPathsForSelectedItems() where indexPath.count > 0 ,let cell = colorCollectionView.cellForItemAtIndexPath(indexPath[0]){
+            currentColor = cell.backgroundColor!
         }else{
             currentColor = UIColor(hue: 1, saturation: 0, brightness: brightnessView.brightness, alpha: 1)
         }
     }
     private func hidePalette(){
         UIView.animateWithDuration(0.8, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {[unowned self]() -> Void in
-            self.center.y = self.windowBounds.height + paletteViewHeight/2 - self.hideViewButton.frame.height
+            self.center.y = windowBounds.height + paletteViewHeight/2 - self.hideViewButton.frame.height
             }, completion: nil)
     }
     private func showPalette(){
         UIView.animateWithDuration(0.8, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {[unowned self]() -> Void in
-            self.center.y = self.windowBounds.height - paletteViewHeight/2 + paletteViewInvisableHeight
+            self.center.y = windowBounds.height - paletteViewHeight/2 + paletteViewInvisableHeight
             }, completion: nil)
     }
 }
@@ -78,7 +74,6 @@ extension PaletteView:UICollectionViewDataSource{
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colorCollectionRows * colorCollectionColumns
     }
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ColorCollectionViewCell", forIndexPath: indexPath)
         cell.backgroundColor = initCellColorAtIndexPath(indexPath)

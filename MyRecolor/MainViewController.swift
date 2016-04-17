@@ -13,11 +13,13 @@ class MainViewController: UIViewController {
     let source = ImageSource()
     var pictures = [UIImage]()
     
+    private let zoomPresentAnimationController = ZoomPresentAnimationController()
+    private let zoomDismissAnimationController = ZoomDismissAnimationController()
+
     @IBOutlet weak var albumCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         initPictures()
-//        albumCollectionView.contentInset = UIEdgeInsets(top: 20, left: -20, bottom: 20, right: -20)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +31,8 @@ class MainViewController: UIViewController {
         if segue.identifier == "showImage", let destinationViewController = segue.destinationViewController as? PaintingViewController,let cell = sender as? ImageCollectionViewCell {
             destinationViewController.paintingImage = cell.imageView.image
             destinationViewController.delegate = self
+            destinationViewController.transitioningDelegate = self
+
         }
     }
     func initPictures(){
@@ -65,5 +69,26 @@ extension MainViewController: SaveImageDelegate{
         pictures[indexPath[0].row] = image
         albumCollectionView.reloadData()
         source.saveImage(image, ofIndex: indexPath[0].row)
+    }
+}
+//MARK: Transition Delegate
+extension MainViewController: UIViewControllerTransitioningDelegate{
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        guard let indexPaths = albumCollectionView.indexPathsForSelectedItems() where indexPaths.count > 0,let cell = albumCollectionView.cellForItemAtIndexPath(indexPaths[0]) as? ImageCollectionViewCell else{
+            return zoomPresentAnimationController
+        }
+        zoomPresentAnimationController.cell = cell
+        return zoomPresentAnimationController
+    }
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        zoomDismissAnimationController.destinationFrame = self.view.frame
+        return zoomDismissAnimationController
+    }
+}
+//MARK: AlbumCollectionViewLayout Delegate 
+extension MainViewController: AlbumCollectionViewLayoutDelegate{
+    func collectionView(collectionView: UICollectionView, sizeForPhotoAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        return pictures[indexPath.row].size
     }
 }

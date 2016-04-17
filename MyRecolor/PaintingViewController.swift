@@ -13,6 +13,7 @@ protocol SaveImageDelegate : class {
 }
 
 class PaintingViewController: UIViewController {
+    //MARK: Property
     var paintingImage:UIImage?
 
     var paletteView: PaletteView!
@@ -26,7 +27,7 @@ class PaintingViewController: UIViewController {
     @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var imageScrollView: UIScrollView!
-    
+    //MARK: IBAction
     @IBAction func taptap(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(imageView)
         print("taptap point \(point)")
@@ -55,6 +56,7 @@ class PaintingViewController: UIViewController {
             }
         }
     }
+    //MARK: Init view
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = paintingImage
@@ -76,6 +78,7 @@ class PaintingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    //MARK: Zoomming
     private func updateMinZoomScaleForSize(size: CGSize) {
         let widthScale = size.width / imageView.bounds.width
         let heightScale = size.height / imageView.bounds.height
@@ -84,7 +87,7 @@ class PaintingViewController: UIViewController {
         imageScrollView.minimumZoomScale = minScale
         imageScrollView.maximumZoomScale = 4
         imageScrollView.zoomScale = minScale
-        print("zoomScale \(imageScrollView.zoomScale)")
+//        print("zoomScale \(imageScrollView.zoomScale)")
 
     }
     private func updateConstraintsForSize(size: CGSize) {
@@ -100,6 +103,7 @@ class PaintingViewController: UIViewController {
         view.layoutIfNeeded()
     }
 }
+//MARK: UIScrollView Delegate
 extension PaintingViewController:UIScrollViewDelegate{
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
@@ -111,7 +115,6 @@ extension PaintingViewController:UIScrollViewDelegate{
         }else{
             scrollView.scrollEnabled = true
         }
-        
     }
 }
 

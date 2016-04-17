@@ -7,13 +7,21 @@
 //
 
 import UIKit
-
+import AVFoundation
+protocol AlbumCollectionViewLayoutDelegate {
+    func collectionView(collectionView:UICollectionView, sizeForPhotoAtIndexPath indexPath:NSIndexPath) -> CGSize
+}
 class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
     
     let numberOfColumns = 2
     let numberOfRows = 2
     var cellPadding: CGFloat = 6.0
     
+    private var delegate : AlbumCollectionViewLayoutDelegate {
+        get {
+            return collectionView!.delegate as! AlbumCollectionViewLayoutDelegate
+        }
+    }
     private var cache = [UICollectionViewLayoutAttributes]()
    
     private var contentWidth:CGFloat  = 0.0
@@ -25,7 +33,6 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
     override func prepareLayout() {
         scrollDirection = .Horizontal
         if cache.isEmpty {
-        
             let insets = collectionView!.contentInset
             let columnWidth = (CGRectGetWidth(collectionView!.bounds) - (insets.left + insets.right)) / CGFloat(numberOfRows)
             let rowHeight = contentHeight / CGFloat(numberOfRows)
@@ -41,8 +48,15 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
             
                 let indexPath = NSIndexPath(forItem: item, inSection: 0)
     
-                let frame = CGRect(x: xOffset[row], y: yOffset[row], width: columnWidth, height: rowHeight)
-                let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
+//                let rect = CGRect(x: xOffset[row], y: yOffset[row], width: columnWidth, height: rowHeight)
+//                let imageSize = delegate.collectionView(collectionView!, sizeForPhotoAtIndexPath: indexPath)
+//                let frame  = AVMakeRectWithAspectRatioInsideRect(imageSize, rect)
+//                let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
+                let rect = CGRect(x: xOffset[row]+cellPadding, y: yOffset[row]+cellPadding, width: columnWidth-cellPadding*2, height: rowHeight-cellPadding*2)
+                let imageSize = delegate.collectionView(collectionView!, sizeForPhotoAtIndexPath: indexPath)
+                let frame  = AVMakeRectWithAspectRatioInsideRect(imageSize, rect)
+                let insetFrame = CGRectInset(frame, 0, 0)
+                
                 
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.frame = insetFrame
