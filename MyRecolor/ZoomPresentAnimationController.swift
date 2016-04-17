@@ -18,7 +18,7 @@ class ZoomPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
         guard let containerView = transitionContext.containerView(),
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
+            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? PaintingViewController else {
                 return
         }
         
@@ -37,6 +37,7 @@ class ZoomPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
             toVC.view.alpha = 1
             }, completion: { _ in
                 imageView.removeFromSuperview()
+                toVC.paletteView.showPalette()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
         

@@ -34,6 +34,7 @@ class PaintingViewController: UIViewController {
     }
     @IBAction func swipeToDismiss(sender: UISwipeGestureRecognizer) {
         self.delegate?.saveImage(imageView.image!)
+        paletteView.hidePalette()
         dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func swipeToSave(sender: UISwipeGestureRecognizer) {
@@ -71,6 +72,7 @@ class PaintingViewController: UIViewController {
         paletteView = viewFromNib
         paletteView.imageView = imageView
         view.addSubview(paletteView)
+//        paletteView.showPalette()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -16,17 +16,15 @@ class PaletteView: UIView {
         }
     }
     
-    private var isHidden = false
+    private var isHidden = true
     
     @IBOutlet weak var brightnessView: BrightnessView!
     @IBOutlet weak var colorCollectionView: ColorCollectionView!
     @IBOutlet weak var hideViewButton: PaletteViewHeadButton!
     @IBAction func hideView(sender: UIButton) {
         if isHidden {
-            isHidden = !isHidden
             showPalette()
         }else{
-            isHidden = !isHidden
             hidePalette()
         }
     }
@@ -39,7 +37,7 @@ class PaletteView: UIView {
     }
     private func configureView(){
         self.bounds.size = CGSize(width: paletteViewWidth, height: paletteViewHeight)
-        self.center = CGPoint(x: windowBounds.width/2, y: windowBounds.height-paletteViewHeight/2 + paletteViewInvisableHeight)
+        self.center = CGPoint(x: windowBounds.width/2, y:  windowBounds.height + paletteViewHeight/2 - 30)
         self.backgroundColor = UIColor.whiteColor()
     }
     private func configureLayer(){
@@ -55,12 +53,14 @@ class PaletteView: UIView {
             currentColor = UIColor(hue: 1, saturation: 0, brightness: brightnessView.brightness, alpha: 1)
         }
     }
-    private func hidePalette(){
+    func hidePalette(){
+        isHidden = !isHidden
         UIView.animateWithDuration(0.8, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {[unowned self]() -> Void in
             self.center.y = windowBounds.height + paletteViewHeight/2 - self.hideViewButton.frame.height
             }, completion: nil)
     }
-    private func showPalette(){
+    func showPalette(){
+        isHidden = !isHidden
         UIView.animateWithDuration(0.8, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {[unowned self]() -> Void in
             self.center.y = windowBounds.height - paletteViewHeight/2 + paletteViewInvisableHeight
             }, completion: nil)

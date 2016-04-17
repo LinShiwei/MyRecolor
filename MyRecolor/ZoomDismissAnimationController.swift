@@ -29,7 +29,7 @@ class ZoomDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
         containerView.addSubview(toVC.view)
         containerView.addSubview(snapshot)
         toVC.view.alpha = 0
-        UIView.animateWithDuration(1.2, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
+        UIView.animateWithDuration(1.2, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
             snapshot.frame = self.finalFrame
             }, completion:  nil)
         
