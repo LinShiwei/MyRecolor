@@ -190,10 +190,10 @@ extension PaintingImageView {
         let x = Int(self.image!.size.width * imageViewPoint.x * scale / self.frame.size.width)
         let y = Int(self.image!.size.height * imageViewPoint.y * scale / self.frame.size.height)
         
-        print("before convert \(imageViewPoint)")
-        print("imageViewFrame \(self.frame.size)")
-        print("after convert  \(CGPoint(x:x,y:y))")
-        
+//        print("before convert \(imageViewPoint)")
+//        print("imageViewFrame \(self.frame.size)")
+//        print("after convert  \(CGPoint(x:x,y:y))")
+//        
         return CGPoint(x: x, y: y)
         
     }

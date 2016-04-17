@@ -54,7 +54,6 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
                 let imageSize = delegate.collectionView(collectionView!, sizeForPhotoAtIndexPath: indexPath)
                 let insetFrame  = AVMakeRectWithAspectRatioInsideRect(imageSize, frame)
                 
-                
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.frame = insetFrame
                 cache.append(attributes)

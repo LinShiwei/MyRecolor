@@ -30,13 +30,15 @@ class MainViewController: UIViewController {
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showImage", let destinationViewController = segue.destinationViewController as? PaintingViewController,let cell = sender as? ImageCollectionViewCell {
+            let indexPath = albumCollectionView.indexPathForCell(cell)
+            destinationViewController.originImage = UIImage(contentsOfFile: source.originPicturePaths[indexPath!.row])
             destinationViewController.paintingImage = cell.imageView.image
             destinationViewController.delegate = self
             destinationViewController.transitioningDelegate = self
         }
     }
     func initPictures(){
-        for path in source.picturePaths {
+        for path in source.picturePathsInUserDomain {
             pictures.append(UIImage(contentsOfFile: path)!)
         }
     }
@@ -53,7 +55,11 @@ extension MainViewController: UICollectionViewDataSource{
         return cell
     }
 }
-
+////MARK: CollectionView Delegate
+//extension MainViewController: UICollectionViewDelegate{
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//    }
+//}
 //MARK: SaveImage Delegate
 extension MainViewController: SaveImageDelegate{
     func saveImage(image : UIImage){
@@ -70,6 +76,7 @@ extension MainViewController: SaveImageDelegate{
 extension MainViewController: UIViewControllerTransitioningDelegate{
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         guard let indexPaths = albumCollectionView.indexPathsForSelectedItems() where indexPaths.count > 0,let cell = albumCollectionView.cellForItemAtIndexPath(indexPaths[0]) as? ImageCollectionViewCell else{
+            print("cell no found")
             return zoomPresentAnimationController
         }
         zoomPresentAnimationController.cell = cell
@@ -78,17 +85,16 @@ extension MainViewController: UIViewControllerTransitioningDelegate{
         zoomDismissAnimationController.cell = cell
         zoomDismissAnimationController.originFrame = zoomPresentAnimationController.finalFrame
         zoomDismissAnimationController.finalFrame = zoomPresentAnimationController.originFrame
+        
         return zoomPresentAnimationController
     }
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
         return zoomDismissAnimationController
     }
 }
 //MARK: AlbumCollectionViewLayout Delegate
 extension MainViewController: AlbumCollectionViewLayoutDelegate{
     func collectionView(collectionView: UICollectionView, sizeForPhotoAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
         return pictures[indexPath.row].size
     }
 }

@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import AVFoundation
 class ZoomPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     var cell: ImageCollectionViewCell!
     var originFrame, finalFrame: CGRect!
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 2
+        return 0.8
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -21,23 +20,32 @@ class ZoomPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
             let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? PaintingViewController else {
                 return
         }
-        
-        let imageView = cell!.snapshotViewAfterScreenUpdates(true)
-        imageView.frame.origin = originFrame.origin
+        let imageView = UIImageView(image: cell.imageView.image)
+
+        let snapshot = imageView.snapshotViewAfterScreenUpdates(true)
+        snapshot.frame = originFrame
+        snapshot.layer.borderColor = UIColor.grayColor().CGColor
+        snapshot.layer.cornerRadius = 10
+        snapshot.layer.borderWidth = 5
+        snapshot.layer.masksToBounds = true
+
         containerView.addSubview(toVC.view)
-        containerView.addSubview(imageView)
+        containerView.addSubview(snapshot)
         toVC.view.alpha = 0
         cell.alpha = 0
-        
-        UIView.animateWithDuration(1.2, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
-            imageView.frame = self.finalFrame
+        let duration = transitionDuration(transitionContext)
+        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
+            snapshot.frame = self.finalFrame
+            snapshot.layer.borderWidth = 10
+            snapshot.layer.cornerRadius = 0
             }, completion:  nil)
         
-        UIView.animateWithDuration(0.8, delay: 0.03, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
+        UIView.animateWithDuration(duration, delay: 0.0, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
             toVC.view.alpha = 1
             }, completion: { _ in
-                imageView.removeFromSuperview()
+                snapshot.removeFromSuperview()
                 toVC.paletteView.showPalette()
+                toVC.imageView.alpha = 1
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
         

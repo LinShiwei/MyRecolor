@@ -7,61 +7,42 @@
 //
 
 import UIKit
-import CoreData
 class ImageSource: NSObject {
-    var picturePaths = [String]()
+    var picturePathsInUserDomain = [String]()
+    var originPicturePaths = [String]()
     func saveImage(image:UIImage,ofIndex index:Int){
         let data = UIImagePNGRepresentation(image)
-        data!.writeToFile(picturePaths[index], atomically: true)
+        data!.writeToFile(picturePathsInUserDomain[index], atomically: true)
     }
     override init() {
         super.init()
-        let imageObjects = initImageObjects()
-        for object in imageObjects {
-            picturePaths.append(appFilePath + (object.valueForKey("name") as! String))
-        }
+        initPicturePaths()
+        prepareImageFile()
     }
-    private func initImageObjects()->[NSManagedObject]{
-        let managedContext = getManagedContext()
-        let fetchRequest = NSFetchRequest(entityName: "Picture")
-        var objects = [NSManagedObject]()
-        do {
-            objects = try managedContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
+    private func prepareImageFile(){
+        let manager = NSFileManager.defaultManager()
+        do{
+            let fileName = try manager.contentsOfDirectoryAtPath(appFilePath)
+            var count = 0
+            for name in fileName where name.hasPrefix(imageSourcePrefix){
+                count += 1
+            }
+            if count < imageSourceIndexEnd - imageSourceIndexStart + 1 {
+                copyImageToUserDomainMask()
+            }
+        }catch{
+            print("failed to get fileNames")
         }
-        if objects.count > 0 {
-            return objects
-        }else{
-            copyImageToUserDomainMask()
-            
-            let entity = NSEntityDescription.entityForName("Picture", inManagedObjectContext:managedContext)
-            var newObjects = [NSManagedObject]()
-            for index in imageSourceIndexStart...imageSourceIndexEnd {
-                newObjects.append(NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext))
-                newObjects.last!.setValue(imageSourcePrefix + String(index) + ".png", forKey: "name")
-            }
-            do {
-                try managedContext.save()
-            }
-            catch let error as NSError {
-                print("Could not save \(error), \(error.userInfo)")
-            }
-            return newObjects
-        }
-        
-    }
-    private func getManagedContext()->NSManagedObjectContext{
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        return appDelegate.managedObjectContext
     }
     private func copyImageToUserDomainMask(){
-        for index in imageSourceIndexStart...imageSourceIndexEnd {
-            
-            let sourcePath = NSBundle.mainBundle().pathForResource(imageSourcePrefix + String(index), ofType: "png")
-            let destinationPath = appFilePath + imageSourcePrefix + String(index) + ".png"
-            let data = UIImagePNGRepresentation(UIImage(contentsOfFile: sourcePath!)!)
-            data!.writeToFile(destinationPath, atomically: true)
+        for index in 0...originPicturePaths.count - 1 {
+            let data = UIImagePNGRepresentation(UIImage(contentsOfFile: originPicturePaths[index])!)
+            data!.writeToFile(picturePathsInUserDomain[index], atomically: true)
         }
     }
-}
+    private func initPicturePaths(){
+        for index in imageSourceIndexStart...imageSourceIndexEnd {
+            originPicturePaths.append(NSBundle.mainBundle().pathForResource(imageSourcePrefix + String(index), ofType: "png")!)
+            picturePathsInUserDomain.append(appFilePath + imageSourcePrefix + String(index) + ".png")
+        }
+    }}

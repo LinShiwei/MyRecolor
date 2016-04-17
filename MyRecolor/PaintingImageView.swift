@@ -13,6 +13,7 @@ class PaintingImageView: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         configureLayer()
+        alpha = 0
 //        configureBorderLayer()
     }
     private func configureLayer(){

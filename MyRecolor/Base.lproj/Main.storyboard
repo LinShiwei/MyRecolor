@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSf-Tw-lAz">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="1366"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSf-Tw-lAz">
+                                <rect key="frame" x="0.0" y="243" width="551" height="1123"/>
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlT-0t-ZOO" customClass="PaintingImageView" customModule="MyRecolor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <rect key="frame" x="0.0" y="-243" width="600" height="600"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="600" id="DKA-RV-omD"/>
@@ -50,12 +50,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uX4-vk-y7v"/>
                                 </connections>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwv-Ta-aHM">
+                                <rect key="frame" x="633" y="28" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="HkN-Xb-2AH"/>
+                                    <constraint firstAttribute="height" constant="50" id="Ldj-Ko-5Mn"/>
+                                </constraints>
+                                <state key="normal" image="Refresh"/>
+                                <connections>
+                                    <action selector="refreshImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ehY-Ip-5Hg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TSf-Tw-lAz" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="5Ap-o8-oTW"/>
                             <constraint firstAttribute="trailing" secondItem="TSf-Tw-lAz" secondAttribute="trailing" id="8rt-au-p77"/>
+                            <constraint firstItem="Dwv-Ta-aHM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="QI0-Uh-DcU"/>
+                            <constraint firstItem="Dwv-Ta-aHM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SdK-SM-xgc"/>
                             <constraint firstItem="TSf-Tw-lAz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dai-1s-IZN"/>
                             <constraint firstItem="TSf-Tw-lAz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wER-dO-cc0"/>
                         </constraints>
@@ -168,5 +181,6 @@
     </scenes>
     <resources>
         <image name="Background2" width="768" height="1024"/>
+        <image name="Refresh" width="50" height="50"/>
     </resources>
 </document>

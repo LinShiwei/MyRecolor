@@ -14,6 +14,7 @@ protocol SaveImageDelegate : class {
 
 class PaintingViewController: UIViewController {
     //MARK: Property
+    var originImage:UIImage?
     var paintingImage:UIImage?
 
     var paletteView: PaletteView!
@@ -28,6 +29,9 @@ class PaintingViewController: UIViewController {
     
     @IBOutlet weak var imageScrollView: UIScrollView!
     //MARK: IBAction
+    @IBAction func refreshImage(sender: UIButton) {
+        imageView.image = originImage
+    }
     @IBAction func taptap(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(imageView)
         imageView.buckerFill(point, replacementColor: paletteView.currentColor)
@@ -72,7 +76,6 @@ class PaintingViewController: UIViewController {
         paletteView = viewFromNib
         paletteView.imageView = imageView
         view.addSubview(paletteView)
-//        paletteView.showPalette()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
