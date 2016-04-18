@@ -1,4 +1,4 @@
 # MyRecolor
-Recolor - A painting game
+Recolor - A painting game like Secret Garden
 
-Haven't finished yet.
+Hope you enjoy it.
