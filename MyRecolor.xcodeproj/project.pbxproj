@@ -17,6 +17,9 @@
 		560A46091CB4D5B80030AA0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560A46081CB4D5B80030AA0E /* Assets.xcassets */; };
 		560A460C1CB4D5B80030AA0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560A460A1CB4D5B80030AA0E /* LaunchScreen.storyboard */; };
 		560A46171CB4D5B80030AA0E /* MyRecolorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */; };
+		5616EFC41CC46B1B009EA7DC /* SwiftPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5616EFC11CC46B1B009EA7DC /* SwiftPrompts.swift */; };
+		5616EFC51CC46B1B009EA7DC /* SwiftPromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5616EFC21CC46B1B009EA7DC /* SwiftPromptsView.swift */; };
+		5616EFC61CC46B1B009EA7DC /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5616EFC31CC46B1B009EA7DC /* UIImageEffects.swift */; };
 		561B90E41CC2606F009219F7 /* ZoomPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561B90E31CC2606F009219F7 /* ZoomPresentAnimationController.swift */; };
 		561B90E81CC263EE009219F7 /* ZoomDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561B90E71CC263ED009219F7 /* ZoomDismissAnimationController.swift */; };
 		563597621CBE1A1C0062A764 /* ImageSource.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 563597601CBE1A1C0062A764 /* ImageSource.xcdatamodeld */; };
@@ -64,6 +67,9 @@
 		560A46121CB4D5B80030AA0E /* MyRecolorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRecolorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		560A46161CB4D5B80030AA0E /* MyRecolorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecolorTests.swift; sourceTree = "<group>"; };
 		560A46181CB4D5B80030AA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5616EFC11CC46B1B009EA7DC /* SwiftPrompts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPrompts.swift; sourceTree = "<group>"; };
+		5616EFC21CC46B1B009EA7DC /* SwiftPromptsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPromptsView.swift; sourceTree = "<group>"; };
+		5616EFC31CC46B1B009EA7DC /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
 		561B90E31CC2606F009219F7 /* ZoomPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomPresentAnimationController.swift; sourceTree = "<group>"; };
 		561B90E71CC263ED009219F7 /* ZoomDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomDismissAnimationController.swift; sourceTree = "<group>"; };
 		563597611CBE1A1C0062A764 /* ImageSource.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImageSource.xcdatamodel; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 		560A46001CB4D5B80030AA0E /* MyRecolor */ = {
 			isa = PBXGroup;
 			children = (
+				5616EFC71CC46B23009EA7DC /* SwiftPrompts */,
 				569462041CBE7E1D00CE0ADA /* content */,
 				564736591CB7E13E001E291C /* MainView */,
 				561B90E21CC25FBE009219F7 /* Animation Controllers */,
@@ -145,6 +152,16 @@
 				560A46181CB4D5B80030AA0E /* Info.plist */,
 			);
 			path = MyRecolorTests;
+			sourceTree = "<group>";
+		};
+		5616EFC71CC46B23009EA7DC /* SwiftPrompts */ = {
+			isa = PBXGroup;
+			children = (
+				5616EFC11CC46B1B009EA7DC /* SwiftPrompts.swift */,
+				5616EFC21CC46B1B009EA7DC /* SwiftPromptsView.swift */,
+				5616EFC31CC46B1B009EA7DC /* UIImageEffects.swift */,
+			);
+			name = SwiftPrompts;
 			sourceTree = "<group>";
 		};
 		561B90E21CC25FBE009219F7 /* Animation Controllers */ = {
@@ -329,6 +346,7 @@
 			files = (
 				56477F211CB8BC370052123D /* AlbumCollectionViewLayout.swift in Sources */,
 				563597711CBE39A50062A764 /* ImageSource.swift in Sources */,
+				5616EFC51CC46B1B009EA7DC /* SwiftPromptsView.swift in Sources */,
 				5604DA641CB8F6760041045E /* ImageViewFloodFillAlgorithm.swift in Sources */,
 				563597621CBE1A1C0062A764 /* ImageSource.xcdatamodeld in Sources */,
 				560A46041CB4D5B80030AA0E /* PaintingViewController.swift in Sources */,
@@ -337,6 +355,7 @@
 				564736541CB7DCBD001E291C /* tempCode.swift in Sources */,
 				56ECC5DA1CB9FBE100C4A856 /* ColorCollectionViewLayout.swift in Sources */,
 				5604DA661CB91F710041045E /* PaletteView.swift in Sources */,
+				5616EFC41CC46B1B009EA7DC /* SwiftPrompts.swift in Sources */,
 				560A46021CB4D5B80030AA0E /* AppDelegate.swift in Sources */,
 				561B90E81CC263EE009219F7 /* ZoomDismissAnimationController.swift in Sources */,
 				56046EC71CBFAE9500BC2D02 /* PaintingImageView.swift in Sources */,
@@ -345,6 +364,7 @@
 				56ECC5DC1CBA1AA100C4A856 /* Define.swift in Sources */,
 				56ECC5D81CB9F75100C4A856 /* ColorCollectionView.swift in Sources */,
 				564736581CB7DFBD001E291C /* MainViewController.swift in Sources */,
+				5616EFC61CC46B1B009EA7DC /* UIImageEffects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
