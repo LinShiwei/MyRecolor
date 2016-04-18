@@ -259,7 +259,7 @@ public class SwiftPromptsView: UIView {
             
             // Initialize Gesture Recognizer
             if (masterClass.enablePromptGestures) {
-                let panRecognizer = UIPanGestureRecognizer(target:self, action:"detectPan")
+                let panRecognizer = UIPanGestureRecognizer(target:self, action:"detectPan:")
                 self.gestureRecognizers = [panRecognizer]
             }
         }
