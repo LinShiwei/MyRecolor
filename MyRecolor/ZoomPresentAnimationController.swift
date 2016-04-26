@@ -33,10 +33,13 @@ class ZoomPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
         containerView.addSubview(snapshot)
         toVC.view.alpha = 0
         cell.alpha = 0
+        
+        let scale = toVC.imageScrollView.zoomScale
+
         let duration = transitionDuration(transitionContext)
         UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
             snapshot.frame = self.finalFrame
-            snapshot.layer.borderWidth = 10
+            snapshot.layer.borderWidth = 10/scale
             snapshot.layer.cornerRadius = 0
             }, completion:  nil)
         

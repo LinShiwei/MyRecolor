@@ -14,7 +14,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = UIColor.whiteColor()
+        backgroundColor = UIColor.redColor()
         configureLayer()
     }
     

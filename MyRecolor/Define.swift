@@ -17,9 +17,9 @@ let colorCellPadding : CGFloat = 3
 
 let appFilePath = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]) + "/"
 
-let imageSourcePrefix = "test"
+let imageSourcePrefix = "image"
 let imageSourceIndexStart = 1
-let imageSourceIndexEnd = 6
+let imageSourceIndexEnd = 16
 
 let paletteViewWidth :CGFloat = 600
 let paletteViewHeight:CGFloat = 300

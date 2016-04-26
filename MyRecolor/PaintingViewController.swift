@@ -21,7 +21,7 @@ class PaintingViewController: UIViewController {
     
     weak var delegate : SaveImageDelegate?
     
-    private var prompt = SwiftPromptsView()
+    private var prompt = PromptsView()
     
     @IBOutlet weak var imageView: PaintingImageView!
     @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
@@ -32,23 +32,11 @@ class PaintingViewController: UIViewController {
     @IBOutlet weak var imageScrollView: UIScrollView!
     //MARK: IBAction
     @IBAction func refreshButtonTap(sender: UIButton) {
-        initPrompt()
-        prompt.setPromptHeader("重置")
-        prompt.setPromptContentText("确定要重置这幅图片吗?重置后不可复原。")
-        prompt.setPromptDismissIconVisibility(true)
-        prompt.setPromptOutlineVisibility(true)
-        prompt.setPromptHeaderTxtColor(UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0))
-        prompt.setPromptOutlineColor(UIColor(red: 133.0/255.0, green: 133.0/255.0, blue: 133.0/255.0, alpha: 1.0))
-        prompt.setPromptDismissIconColor(UIColor(red: 133.0/255.0, green: 133.0/255.0, blue: 133.0/255.0, alpha: 1.0))
-        prompt.setPromptTopLineColor(UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0))
-        prompt.setPromptBackgroundColor(UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.67))
-        prompt.setPromptBottomBarColor(UIColor(red: 133.0/255.0, green: 133.0/255.0, blue: 133.0/255.0, alpha: 1.0))
-        prompt.setMainButtonColor(UIColor.whiteColor())
-        prompt.setMainButtonText("重置")
-        
+        prompt = PromptsView(self.view.bounds, ofType: .Assert, delegate: self)
+        prompt.configureText("重置", contentText: "确定要重置这幅图片吗?重置后不可复原。", mainButtonText: "重置")
         self.view.addSubview(prompt)
     }
-    @IBAction func taptap(sender: UITapGestureRecognizer) {
+    @IBAction func tapToFill(sender: UITapGestureRecognizer) {
         let point = sender.locationInView(imageView)
         imageView.buckerFill(point, replacementColor: paletteView.currentColor)
     }
@@ -65,16 +53,9 @@ class PaintingViewController: UIViewController {
     func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
         dispatch_async(dispatch_get_main_queue()) {[unowned self] in
             if error == nil {
-                self.initPrompt()
-                self.prompt.setPromptHeader("太棒了")
-                self.prompt.setPromptContentText("图片已经储存到系统相册")
-                self.prompt.setPromptTopLineColor(UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0))
-                self.prompt.setPromptBackgroundColor(UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.67))
-                self.prompt.setPromptBottomBarColor(UIColor(red: 34.0/255.0, green: 139.0/255.0, blue: 34.0/255.0, alpha: 0.67))
-                self.prompt.setMainButtonColor(UIColor.whiteColor())
-                self.prompt.setMainButtonText("好的")
+                self.prompt = PromptsView(self.view.bounds, ofType: .Information, delegate: self)
+                self.prompt.configureText("太棒了", contentText: "图片已经储存到系统相册", mainButtonText: "好的")
                 self.view.addSubview(self.prompt)
-
             } else {
                 
             }
@@ -140,15 +121,6 @@ extension PaintingViewController:UIScrollViewDelegate{
 }
 //MARK: SwiftPrompts Delegate
 extension PaintingViewController: SwiftPromptsProtocol{
-    func initPrompt(){
-        prompt = SwiftPromptsView(frame: self.view.bounds)
-        prompt.delegate = self
-        //Set the properties for the background
-        prompt.setBlurringLevel(2.0)
-        prompt.setPromptTopLineVisibility(true)
-        prompt.setPromptBottomLineVisibility(false)
-        prompt.setPromptBottomBarVisibility(true)
-    }
     func clickedOnTheMainButton() {
         print("Clicked on the main button")
         if prompt.getPromptHeader() == "重置" {
@@ -156,12 +128,10 @@ extension PaintingViewController: SwiftPromptsProtocol{
         }
         prompt.dismissPrompt()
     }
-    
     func clickedOnTheSecondButton() {
         print("Clicked on the second button")
         prompt.dismissPrompt()
     }
-    
     func promptWasDismissed() {
         print("Dismissed the prompt")
     }

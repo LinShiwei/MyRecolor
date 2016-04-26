@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initPictures()
+//        albumCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,7 @@ class MainViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showImage", let destinationViewController = segue.destinationViewController as? PaintingViewController,let cell = sender as? ImageCollectionViewCell {
             let indexPath = albumCollectionView.indexPathForCell(cell)
+            print(indexPath)
             destinationViewController.originImage = UIImage(contentsOfFile: source.originPicturePaths[indexPath!.row])
             destinationViewController.paintingImage = cell.imageView.image
             destinationViewController.delegate = self

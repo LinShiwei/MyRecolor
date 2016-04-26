@@ -42,7 +42,7 @@ class ImageSource: NSObject {
     }
     private func initPicturePaths(){
         for index in imageSourceIndexStart...imageSourceIndexEnd {
-            originPicturePaths.append(NSBundle.mainBundle().pathForResource(imageSourcePrefix + String(index), ofType: "png")!)
-            picturePathsInUserDomain.append(appFilePath + imageSourcePrefix + String(index) + ".png")
+            originPicturePaths.append(NSBundle.mainBundle().pathForResource(imageSourcePrefix + String(index), ofType: "PNG")!)
+            picturePathsInUserDomain.append(appFilePath + imageSourcePrefix + String(index) + ".PNG")
         }
     }}

@@ -10,9 +10,7 @@ import UIKit
 
 class ZoomDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     var cell: ImageCollectionViewCell!
-
     var originFrame, finalFrame : CGRect!
-    
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.8
     }

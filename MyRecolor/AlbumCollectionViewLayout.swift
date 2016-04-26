@@ -42,7 +42,8 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
                 yOffset.append(CGFloat(row) * rowHeight )
             }
             var row = 0
-            var xOffset = [CGFloat](count: numberOfRows, repeatedValue: 0)
+
+            var xOffset = [CGFloat](count: numberOfColumns, repeatedValue: 0)
             
             for item in 0 ..< collectionView!.numberOfItemsInSection(0) {
             
@@ -50,7 +51,13 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
     
                 let rect = CGRect(x: xOffset[row], y: yOffset[row], width: columnWidth, height: rowHeight)
                 
-                let frame = CGRectInset(rect, cellPadding, cellPadding)
+                var frame = CGRectInset(rect, cellPadding, cellPadding)
+                if item % 4 < 2{
+                    frame.origin.x += 35
+                    frame.size.width -= 35
+                }else{
+                    frame.size.width -= 35
+                }
                 let imageSize = delegate.collectionView(collectionView!, sizeForPhotoAtIndexPath: indexPath)
                 let insetFrame  = AVMakeRectWithAspectRatioInsideRect(imageSize, frame)
                 

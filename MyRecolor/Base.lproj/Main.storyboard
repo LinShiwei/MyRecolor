@@ -89,7 +89,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="d5i-Hs-pnM">
                     <connections>
-                        <action selector="taptap:" destination="BYZ-38-t0r" id="7R6-wa-d7L"/>
+                        <action selector="tapToFill:" destination="BYZ-38-t0r" id="glt-bQ-7RA"/>
                     </connections>
                 </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="down" id="vkR-aZ-Xr2">

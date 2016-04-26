@@ -15,7 +15,6 @@ class PaletteView: UIView {
             hideViewButton.currentColor = currentColor
         }
     }
-    
     private var isHidden = true
     
     @IBOutlet weak var brightnessView: BrightnessView!
