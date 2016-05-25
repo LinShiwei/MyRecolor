@@ -53,10 +53,10 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
                 
                 var frame = CGRectInset(rect, cellPadding, cellPadding)
                 if item % 4 < 2{
-                    frame.origin.x += 35
-                    frame.size.width -= 35
+                    frame.origin.x += 40
+                    frame.size.width -= 40
                 }else{
-                    frame.size.width -= 35
+                    frame.size.width -= 40
                 }
                 let imageSize = delegate.collectionView(collectionView!, sizeForPhotoAtIndexPath: indexPath)
                 let insetFrame  = AVMakeRectWithAspectRatioInsideRect(imageSize, frame)

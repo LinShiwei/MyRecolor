@@ -36,7 +36,6 @@ class ZoomDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
         let duration = transitionDuration(transitionContext)
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
             snapshot.frame = self.finalFrame
-            print(self.finalFrame)
             snapshot.layer.borderWidth = 5
             snapshot.layer.cornerRadius = 10
             }, completion:  nil)

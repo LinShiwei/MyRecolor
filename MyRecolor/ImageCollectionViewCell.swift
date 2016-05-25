@@ -31,6 +31,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         borderLayer.borderColor = UIColor.redColor().CGColor
         borderLayer.borderWidth = 10
         borderLayer.cornerRadius = 20
+//        borderLayer.delegate = self
         return borderLayer
     }
 }
