@@ -1,7 +1,7 @@
 # MyRecolor
 Recolor - A painting game like Secret Garden for Swift practice.
 
-##Feature
+##Features
 
 1. Use OpenCV's floodFill algorithm. (You can download OpenCV framework from [here](http://opencv.org).)
 
