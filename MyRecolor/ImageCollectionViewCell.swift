@@ -15,9 +15,12 @@ class ImageCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.redColor()
-        configureLayer()
+        
     }
-    
+    override func awakeFromNib() {
+        configureLayer()
+
+    }
     func configureLayer(){
         layer.borderColor = UIColor.grayColor().CGColor
         layer.borderWidth = 5

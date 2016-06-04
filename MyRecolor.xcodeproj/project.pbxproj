@@ -32,6 +32,7 @@
 		56477F211CB8BC370052123D /* AlbumCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56477F201CB8BC370052123D /* AlbumCollectionViewLayout.swift */; };
 		5654D4691CD090C9008D9CEC /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5654D4681CD090C9008D9CEC /* OpenCVWrapper.mm */; };
 		5658FB1F1CC1178300DA3544 /* PaletteViewHeadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5658FB1E1CC1178300DA3544 /* PaletteViewHeadButton.swift */; };
+		56C46F461CF718FB0076EF27 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C46F451CF718FB0076EF27 /* opencv2.framework */; };
 		56CF565D1CC779B8001C709B /* PromptsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF565C1CC779B8001C709B /* PromptsView.swift */; };
 		56CF566F1CC7A710001C709B /* image1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 56CF565F1CC7A710001C709B /* image1.PNG */; };
 		56CF56701CC7A710001C709B /* image10.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 56CF56601CC7A710001C709B /* image10.PNG */; };
@@ -97,6 +98,7 @@
 		5654D4671CD090C9008D9CEC /* OpenCVWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVWrapper.h; sourceTree = "<group>"; };
 		5654D4681CD090C9008D9CEC /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		5658FB1E1CC1178300DA3544 /* PaletteViewHeadButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteViewHeadButton.swift; sourceTree = "<group>"; };
+		56C46F451CF718FB0076EF27 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../../Volumes/LINSW/MyRecolorFramework/opencv2.framework; sourceTree = "<group>"; };
 		56CF565C1CC779B8001C709B /* PromptsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptsView.swift; sourceTree = "<group>"; };
 		56CF565F1CC7A710001C709B /* image1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image1.PNG; sourceTree = "<group>"; };
 		56CF56601CC7A710001C709B /* image10.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image10.PNG; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C46F461CF718FB0076EF27 /* opencv2.framework in Frameworks */,
 				563597641CBE1C2C0062A764 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +145,7 @@
 		560A45F51CB4D5B80030AA0E = {
 			isa = PBXGroup;
 			children = (
+				56C46F451CF718FB0076EF27 /* opencv2.framework */,
 				563597631CBE1C2C0062A764 /* CoreData.framework */,
 				560A46001CB4D5B80030AA0E /* MyRecolor */,
 				560A46151CB4D5B80030AA0E /* MyRecolorTests */,
@@ -562,6 +566,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Volumes/LINSW/MyRecolorFramework;
 				INFOPLIST_FILE = MyRecolor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.MyRecolor;
@@ -580,6 +585,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Volumes/LINSW/MyRecolorFramework;
 				INFOPLIST_FILE = MyRecolor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsw.self.MyRecolor;
