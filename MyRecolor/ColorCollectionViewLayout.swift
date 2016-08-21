@@ -47,9 +47,9 @@ class ColorCollectionViewLayout: UICollectionViewLayout {
               
                 if column == numberOfColumns - 1 {
                     column = 0
-                    row++
+                    row += 1
                 }else{
-                    column++
+                    column += 1
                 }
             }
         }

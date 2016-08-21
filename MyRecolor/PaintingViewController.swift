@@ -47,7 +47,7 @@ class PaintingViewController: UIViewController {
     }
     @IBAction func swipeToSave(sender: UISwipeGestureRecognizer) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
-            UIImageWriteToSavedPhotosAlbum(self.imageView.image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
+            UIImageWriteToSavedPhotosAlbum(self.imageView.image!, self, #selector(PaintingViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
     }
     func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {

@@ -68,7 +68,11 @@ class AlbumCollectionViewLayout: UICollectionViewFlowLayout {
                 contentWidth = max(contentWidth, CGRectGetMaxX(rect))
                 xOffset[row] = xOffset[row] + columnWidth
                 
-                row = row >= (numberOfRows - 1) ? 0 : ++row
+                if row >= numberOfRows - 1 {
+                    row = 0
+                }else{
+                    row += 1
+                }
             }
         }
     }

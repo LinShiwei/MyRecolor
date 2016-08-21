@@ -48,7 +48,7 @@ class BrightnessView: UIView {
         indicatorLayer.lineWidth = CGFloat(2)
         indicatorLayer.strokeColor = UIColor.grayColor().CGColor
         indicator.layer.addSublayer(indicatorLayer)
-        let recognizer = UIPanGestureRecognizer(target: self, action: "didPan:")
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(BrightnessView.didPan(_:)))
         indicator.addGestureRecognizer(recognizer)
     
         addSubview(indicator)
