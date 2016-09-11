@@ -35,4 +35,7 @@ Recolor - A painting game like Secret Garden for Swift practice.
 
 Ps: The prompts in this app is from [here](https://github.com/GabrielAlva/Swift-Prompts).
 
+## Caveat
+
+- OpenCV2 framework is not contained in this repository. To run this repository, you should download and include the OpenCV2 framework first.
 
