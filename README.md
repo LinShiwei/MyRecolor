@@ -29,7 +29,7 @@ Recolor - A painting game like Secret Garden for Swift practice.
 
 2. Swipe down in the picture to save to album.
 
-![image](https://raw.githubusercontent.com/LinShiwei/MyRecolor/master/Recolor1.gif)
+![image](https://raw.githubusercontent.com/LinShiwei/MyRecolor/master/Recolor.gif)
 
 Ps: The prompts in this app is from [here](https://github.com/GabrielAlva/Swift-Prompts).
 
