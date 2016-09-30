@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-let windowBounds = UIScreen.mainScreen().bounds
+let windowBounds = UIScreen.main.bounds
 
 let colorCollectionColumns = 16
 let colorCollectionRows = 6
 let colorCellPadding : CGFloat = 3
 
-let appFilePath = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]) + "/"
+let appFilePath = (NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]) + "/"
 
 let imageSourcePrefix = "image"
 let imageSourceIndexStart = 1

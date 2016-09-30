@@ -13,18 +13,18 @@ class ColorCollectionViewLayout: UICollectionViewLayout {
     let numberOfRows = colorCollectionRows
     var cellPadding = colorCellPadding
     
-    private var cache = [UICollectionViewLayoutAttributes]()
+    fileprivate var cache = [UICollectionViewLayoutAttributes]()
     
-    private var contentWidth:CGFloat {
+    fileprivate var contentWidth:CGFloat {
         let insets = collectionView!.contentInset
-        return CGRectGetWidth(collectionView!.bounds) - (insets.left + insets.right)
+        return collectionView!.bounds.width - (insets.left + insets.right)
     }
-    private var contentHeight: CGFloat {
+    fileprivate var contentHeight: CGFloat {
         let insets = collectionView!.contentInset
-        return CGRectGetHeight(collectionView!.bounds) - (insets.top + insets.bottom)
+        return collectionView!.bounds.height - (insets.top + insets.bottom)
     }
     
-    override func prepareLayout() {
+    override func prepare() {
         if cache.isEmpty {
             let columnWidth = contentWidth / CGFloat(numberOfColumns)
             let rowHeight = contentHeight / CGFloat(numberOfRows)
@@ -32,16 +32,16 @@ class ColorCollectionViewLayout: UICollectionViewLayout {
             var row = 0
             var column = 0
             
-            for item in 0 ..< collectionView!.numberOfItemsInSection(0) {
+            for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
                 let xOffset = CGFloat(column) * columnWidth
                 let yOffset = CGFloat(row) * rowHeight
 
-                let indexPath = NSIndexPath(forItem: item, inSection: 0)
+                let indexPath = IndexPath(item: item, section: 0)
                 
                 let frame = CGRect(x: xOffset, y: yOffset, width: columnWidth, height: rowHeight)
-                let insetFrame = CGRectInset(frame, cellPadding, cellPadding)
+                let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
                 
-                let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 attributes.frame = insetFrame
                 cache.append(attributes)
               
@@ -54,14 +54,14 @@ class ColorCollectionViewLayout: UICollectionViewLayout {
             }
         }
     }
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize : CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
     }
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         
         for attributes  in cache {
-            if CGRectIntersectsRect(attributes.frame, rect ) {
+            if attributes.frame.intersects(rect ) {
                 layoutAttributes.append(attributes)
             }
         }

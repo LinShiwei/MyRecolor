@@ -10,19 +10,19 @@ import UIKit
 class ImageSource: NSObject {
     var picturePathsInUserDomain = [String]()
     var originPicturePaths = [String]()
-    func saveImage(image:UIImage,ofIndex index:Int){
+    func saveImage(_ image:UIImage,ofIndex index:Int){
         let data = UIImagePNGRepresentation(image)
-        data!.writeToFile(picturePathsInUserDomain[index], atomically: true)
+        try? data!.write(to: URL(fileURLWithPath: picturePathsInUserDomain[index]), options: [.atomic])
     }
     override init() {
         super.init()
         initPicturePaths()
         prepareImageFile()
     }
-    private func prepareImageFile(){
-        let manager = NSFileManager.defaultManager()
+    fileprivate func prepareImageFile(){
+        let manager = FileManager.default
         do{
-            let fileName = try manager.contentsOfDirectoryAtPath(appFilePath)
+            let fileName = try manager.contentsOfDirectory(atPath: appFilePath)
             var count = 0
             for name in fileName where name.hasPrefix(imageSourcePrefix){
                 count += 1
@@ -34,15 +34,15 @@ class ImageSource: NSObject {
             print("failed to get fileNames")
         }
     }
-    private func copyImageToUserDomainMask(){
+    fileprivate func copyImageToUserDomainMask(){
         for index in 0...originPicturePaths.count - 1 {
             let data = UIImagePNGRepresentation(UIImage(contentsOfFile: originPicturePaths[index])!)
-            data!.writeToFile(picturePathsInUserDomain[index], atomically: true)
+            try? data!.write(to: URL(fileURLWithPath: picturePathsInUserDomain[index]), options: [.atomic])
         }
     }
-    private func initPicturePaths(){
+    fileprivate func initPicturePaths(){
         for index in imageSourceIndexStart...imageSourceIndexEnd {
-            originPicturePaths.append(NSBundle.mainBundle().pathForResource(imageSourcePrefix + String(index), ofType: "PNG")!)
+            originPicturePaths.append(Bundle.main.path(forResource: imageSourcePrefix + String(index), ofType: "PNG")!)
             picturePathsInUserDomain.append(appFilePath + imageSourcePrefix + String(index) + ".PNG")
         }
     }}

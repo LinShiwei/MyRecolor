@@ -8,8 +8,8 @@
 
 import UIKit
 enum PromptsViewType {
-    case Assert
-    case Information
+    case assert
+    case information
 }
 class PromptsView: SwiftPromptsView {
 
@@ -22,18 +22,18 @@ class PromptsView: SwiftPromptsView {
         setPromptBottomLineVisibility(false)
         setPromptBottomBarVisibility(true)
         switch type {
-        case .Assert:
+        case .assert:
             configureAssertPromptsView()
-        case .Information:
+        case .information:
             configureInformationPromptsView()
         }
     }
-    func configureText(header:String, contentText:String, mainButtonText:String){
+    func configureText(_ header:String, contentText:String, mainButtonText:String){
         setPromptHeader(header)
         setPromptContentText(contentText)
         setMainButtonText(mainButtonText)
     }
-    private func configureAssertPromptsView(){
+    fileprivate func configureAssertPromptsView(){
         setPromptDismissIconVisibility(true)
         setPromptOutlineVisibility(true)
         setPromptHeaderTxtColor(UIColor(red: 255.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0))
@@ -42,13 +42,13 @@ class PromptsView: SwiftPromptsView {
         setPromptTopLineColor(UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0))
         setPromptBackgroundColor(UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.67))
         setPromptBottomBarColor(UIColor(red: 133.0/255.0, green: 133.0/255.0, blue: 133.0/255.0, alpha: 1.0))
-        setMainButtonColor(UIColor.whiteColor())
+        setMainButtonColor(UIColor.white)
     }
-    private func configureInformationPromptsView(){
+    fileprivate func configureInformationPromptsView(){
         setPromptTopLineColor(UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0))
         setPromptBackgroundColor(UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 0.67))
         setPromptBottomBarColor(UIColor(red: 34.0/255.0, green: 139.0/255.0, blue: 34.0/255.0, alpha: 0.67))
-        setMainButtonColor(UIColor.whiteColor())
+        setMainButtonColor(UIColor.white)
     }
 
 }

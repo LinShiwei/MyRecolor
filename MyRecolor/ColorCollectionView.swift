@@ -14,7 +14,7 @@ class ColorCollectionView: UICollectionView {
         super.init(coder: aDecoder)
         configureView()
     }
-    private func configureView(){
-        registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "ColorCollectionViewCell")
+    fileprivate func configureView(){
+        register(UICollectionViewCell.self, forCellWithReuseIdentifier: "ColorCollectionViewCell")
     }
 }

@@ -9,16 +9,16 @@
 import UIKit
 
 class PaletteViewHeadButton: UIButton {
-    var currentColor = UIColor.whiteColor(){
+    var currentColor = UIColor.white{
         didSet{
             backgroundColor = currentColor
             var white : CGFloat = 0
             var alpha : CGFloat = 0
             if currentColor.getWhite(&white, alpha: &alpha) {
                 if white > 0.5 {
-                    titleLabel!.textColor = UIColor.blackColor()
+                    titleLabel!.textColor = UIColor.black
                 }else{
-                    titleLabel!.textColor = UIColor.whiteColor()
+                    titleLabel!.textColor = UIColor.white
                 }
             }
         }
@@ -28,7 +28,7 @@ class PaletteViewHeadButton: UIButton {
         configureLayer()
     }
     func configureLayer(){
-        layer.borderColor = UIColor.grayColor().CGColor
+        layer.borderColor = UIColor.gray.cgColor
         layer.borderWidth = 4
     }
 }

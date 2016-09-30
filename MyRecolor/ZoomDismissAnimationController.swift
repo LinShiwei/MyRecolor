@@ -11,42 +11,43 @@ import UIKit
 class ZoomDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     var cell: ImageCollectionViewCell!
     var originFrame, finalFrame : CGRect!
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.8
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? PaintingViewController,
-            let containerView = transitionContext.containerView(),
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? MainViewController else {
+        guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? PaintingViewController,
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? MainViewController else {
                 return
         }
+        let containerView = transitionContext.containerView
+        
         let imageView = UIImageView(image: fromVC.imageView.image)
 
-        let snapshot = imageView.snapshotViewAfterScreenUpdates(true)
-        snapshot.frame = originFrame
-        snapshot.layer.borderWidth = 10
-        snapshot.layer.borderColor = UIColor.grayColor().CGColor
-        snapshot.layer.masksToBounds = true
+        let snapshot = imageView.snapshotView(afterScreenUpdates: true)
+        snapshot?.frame = originFrame
+        snapshot?.layer.borderWidth = 10
+        snapshot?.layer.borderColor = UIColor.gray.cgColor
+        snapshot?.layer.masksToBounds = true
         containerView.addSubview(toVC.view)
-        containerView.addSubview(snapshot)
+        containerView.addSubview(snapshot!)
         toVC.view.alpha = 0
         
-        let duration = transitionDuration(transitionContext)
-        UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
-            snapshot.frame = self.finalFrame
-            snapshot.layer.borderWidth = 5
-            snapshot.layer.cornerRadius = 10
+        let duration = transitionDuration(using: transitionContext)
+        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.beginFromCurrentState, animations: {() -> Void in
+            snapshot?.frame = self.finalFrame
+            snapshot?.layer.borderWidth = 5
+            snapshot?.layer.cornerRadius = 10
             }, completion:  nil)
         
-        UIView.animateWithDuration(duration, delay: 0, options: [UIViewAnimationOptions.BeginFromCurrentState, UIViewAnimationOptions.CurveEaseInOut], animations: {() -> Void in
+        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {() -> Void in
             toVC.view.alpha = 1
             }, completion: { _ in
-                snapshot.removeFromSuperview()
+                snapshot?.removeFromSuperview()
                 self.cell.alpha = 1
                 toVC.albumCollectionView.reloadData()
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
 
     }

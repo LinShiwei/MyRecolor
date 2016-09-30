@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SaveImageDelegate : class {
-    func saveImage(image : UIImage)
+    func saveImage(_ image : UIImage)
 }
 
 class PaintingViewController: UIViewController {
@@ -21,7 +21,7 @@ class PaintingViewController: UIViewController {
     
     weak var delegate : SaveImageDelegate?
     
-    private var prompt = PromptsView()
+    fileprivate var prompt = PromptsView()
     
     @IBOutlet weak var imageView: PaintingImageView!
     @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
@@ -31,29 +31,32 @@ class PaintingViewController: UIViewController {
     
     @IBOutlet weak var imageScrollView: UIScrollView!
     //MARK: IBAction
-    @IBAction func refreshButtonTap(sender: UIButton) {
-        prompt = PromptsView(self.view.bounds, ofType: .Assert, delegate: self)
+    @IBAction func refreshButtonTap(_ sender: UIButton) {
+        prompt = PromptsView(self.view.bounds, ofType: .assert, delegate: self)
         prompt.configureText("重置", contentText: "确定要重置这幅图片吗?重置后不可复原。", mainButtonText: "重置")
         self.view.addSubview(prompt)
     }
-    @IBAction func tapToFill(sender: UITapGestureRecognizer) {
-        let point = sender.locationInView(imageView)
+    @IBAction func tapToFill(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: imageView)
         imageView.buckerFill(point, replacementColor: paletteView.currentColor)
     }
-    @IBAction func swipeToDismiss(sender: UISwipeGestureRecognizer) {
+    @IBAction func swipeToDismiss(_ sender: UISwipeGestureRecognizer) {
         self.delegate?.saveImage(imageView.image!)
         paletteView.hidePalette()
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
-    @IBAction func swipeToSave(sender: UISwipeGestureRecognizer) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
+    @IBAction func swipeToSave(_ sender: UISwipeGestureRecognizer) {
+        DispatchQueue.global().async{
             UIImageWriteToSavedPhotosAlbum(self.imageView.image!, self, #selector(PaintingViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
         }
+//        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async{
+//            
+//        }
     }
-    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
-        dispatch_async(dispatch_get_main_queue()) {[unowned self] in
+    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafeRawPointer) {
+        DispatchQueue.main.async {[unowned self] in
             if error == nil {
-                self.prompt = PromptsView(self.view.bounds, ofType: .Information, delegate: self)
+                self.prompt = PromptsView(self.view.bounds, ofType: .information, delegate: self)
                 self.prompt.configureText("太棒了", contentText: "图片已经储存到系统相册", mainButtonText: "好的")
                 self.view.addSubview(self.prompt)
             } else {
@@ -72,8 +75,8 @@ class PaintingViewController: UIViewController {
         super.viewDidLayoutSubviews()
         updateMinZoomScaleForSize(view.bounds.size)
     }
-    private func configurePaletteView(){
-        guard let viewFromNib = NSBundle.mainBundle().loadNibNamed("PaletteView", owner: self, options: nil).first as? PaletteView else{return}
+    fileprivate func configurePaletteView(){
+        guard let viewFromNib = Bundle.main.loadNibNamed("PaletteView", owner: self, options: nil)?.first as? PaletteView else{return}
         paletteView = viewFromNib
         paletteView.imageView = imageView
         view.addSubview(paletteView)
@@ -82,7 +85,7 @@ class PaintingViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     //MARK: Zoomming
-    private func updateMinZoomScaleForSize(size: CGSize) {
+    fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
         let widthScale = size.width / imageView.bounds.width
         let heightScale = size.height / imageView.bounds.height
         let minScale = min(widthScale, heightScale)
@@ -92,7 +95,7 @@ class PaintingViewController: UIViewController {
         imageScrollView.zoomScale = minScale
 
     }
-    private func updateConstraintsForSize(size: CGSize) {
+    fileprivate func updateConstraintsForSize(_ size: CGSize) {
         
         let yOffset = max(0, (size.height - imageView.frame.height) / 2)
         imageViewTopConstraint.constant = yOffset
@@ -107,15 +110,15 @@ class PaintingViewController: UIViewController {
 }
 //MARK: UIScrollView Delegate
 extension PaintingViewController:UIScrollViewDelegate{
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-    func scrollViewDidZoom(scrollView: UIScrollView) {
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateConstraintsForSize(view.bounds.size)
         if scrollView.zoomScale == scrollView.minimumZoomScale {
-            scrollView.scrollEnabled = false
+            scrollView.isScrollEnabled = false
         }else{
-            scrollView.scrollEnabled = true
+            scrollView.isScrollEnabled = true
         }
     }
 }

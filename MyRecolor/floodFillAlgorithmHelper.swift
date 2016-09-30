@@ -15,7 +15,7 @@ class RGBComponent {
         self.green = green
         self.blue = blue
     }
-    func equalToComponent(component:RGBComponent)->Bool{
+    func equalToComponent(_ component:RGBComponent)->Bool{
         if red == component.red && green == component.green && blue == component.blue {
             return true
         }else{
